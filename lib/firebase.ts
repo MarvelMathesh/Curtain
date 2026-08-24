@@ -1,5 +1,5 @@
 // Clean Firebase initialization - used for auth/analytics in production
-// Falls back gracefully when window is undefined (SSR) or analytics not supported
+// Falls back gracefully when env missing (Vercel without vars) or SSR
 import { initializeApp, getApps, getApp } from 'firebase/app'
 import { getAnalytics, isSupported as isAnalyticsSupported, Analytics } from 'firebase/analytics'
 import { getAuth, Auth } from 'firebase/auth'
@@ -15,36 +15,42 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
 
-// Prevent double init in HMR / server
-export const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
+function isConfigValid() {
+  return !!(firebaseConfig.apiKey && firebaseConfig.projectId && firebaseConfig.appId)
+}
+
+let app: ReturnType<typeof initializeApp> | null = null
+if (getApps().length) {
+  app = getApps()[0] as any
+} else if (isConfigValid()) {
+  try {
+    app = initializeApp(firebaseConfig)
+  } catch (e: any) {
+    console.warn('[firebase] init failed:', e?.message)
+    app = null
+  }
+} else {
+  console.warn('[firebase] Missing NEXT_PUBLIC_FIREBASE_* — Firebase disabled, using file DB fallback')
+}
 
 let analytics: Analytics | null = null
 let auth: Auth | null = null
 let db: Firestore | null = null
 
-// Client-only initializations
-if (typeof window !== 'undefined') {
-  // Auth is safe to init client-side
-  auth = getAuth(app)
-  db = getFirestore(app)
-  // Analytics only if supported (not in all browsers / SSR)
-  isAnalyticsSupported().then((supported) => {
-    if (supported) {
-      try {
-        analytics = getAnalytics(app)
-      } catch {}
-    }
-  })
-} else {
-  // Server: Firestore can be used with admin-like access if needed, but we keep file DB as primary
-  // Initialize Firestore for server if needed (no analytics)
-  try {
-    db = getFirestore(app)
-  } catch {}
-  try {
-    auth = getAuth(app)
-  } catch {}
+if (app) {
+  if (typeof window !== 'undefined') {
+    try { auth = getAuth(app) } catch {}
+    try { db = getFirestore(app) } catch {}
+    isAnalyticsSupported().then((supported) => {
+      if (supported && app) {
+        try { analytics = getAnalytics(app) } catch {}
+      }
+    })
+  } else {
+    try { db = getFirestore(app) } catch {}
+    try { auth = getAuth(app) } catch {}
+  }
 }
 
-export { analytics, auth, db as firestore }
+export { analytics, auth, db as firestore, app }
 export default app
