@@ -45,7 +45,7 @@ export async function getUserFromTokenAsync(token?: string): Promise<User | null
   // Try Firebase ID token first if admin is ready and token looks like JWT with firebase claim
   try {
     const { getAdminAuthSafe } = await import('./firebase-admin')
-    const adminAuth = getAdminAuthSafe()
+    const adminAuth = await getAdminAuthSafe()
     if (adminAuth) {
       try {
         const decoded = await adminAuth.verifyIdToken(token)
@@ -80,7 +80,7 @@ export async function getUserFromTokenAsync(token?: string): Promise<User | null
 export async function verifyFirebaseIdToken(idToken: string): Promise<{ uid: string; email?: string; name?: string } | null> {
   try {
     const { getAdminAuthSafe } = await import('./firebase-admin')
-    const adminAuth = getAdminAuthSafe()
+    const adminAuth = await getAdminAuthSafe()
     if (!adminAuth) return null
     const decoded = await adminAuth.verifyIdToken(idToken)
     return { uid: decoded.uid, email: (decoded as any).email, name: (decoded as any).name }

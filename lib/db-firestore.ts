@@ -8,7 +8,7 @@ import { randomBytes } from 'crypto'
 const COLLECTIONS = ['users','venues','events','shows','bookings','waitlist','emails'] as const
 
 async function ensureSeeded(): Promise<void> {
-  const db = getAdminDb()
+  const db = await getAdminDb()
   if (!db) return
   const snap = await db.collection('meta').doc('seeded').get()
   if (snap.exists) return
@@ -53,20 +53,20 @@ async function ensureSeeded(): Promise<void> {
 }
 
 export async function getDbFirestore(): Promise<DB> {
-  const db = getAdminDb()
+  const db = await getAdminDb()
   if (!db) throw new Error('Firestore not ready')
   await ensureSeeded()
   const [users, venues, events, shows, bookings, waitlist, emails] = await Promise.all(
     COLLECTIONS.map(async col => {
       const snap = await db.collection(col).get()
-      return snap.docs.map(d => d.data() as any)
+      return snap.docs.map((d: any) => d.data() as any)
     })
   )
   return { users, venues, events, shows, bookings, waitlist, emails } as DB
 }
 
 export async function updateDbFirestore(fn: (db: DB) => void | Promise<void>): Promise<DB> {
-  const adminDb = getAdminDb()
+  const adminDb = await getAdminDb()
   if (!adminDb) throw new Error('Firestore not ready')
   // We use a transaction for atomicity on shows/bookings/waitlist
   // For simplicity, we fetch full DB inside transaction, run fn on in-memory copy, then write back diff
@@ -79,7 +79,7 @@ export async function updateDbFirestore(fn: (db: DB) => void | Promise<void>): P
     // For simplicity, overwrite all docs in collection (ok for demo scale <1k docs)
     // In prod, diff and delete missing.
     const existing = await adminDb.collection(col).get()
-    const existingIds = new Set(existing.docs.map(d=>d.id))
+    const existingIds = new Set(existing.docs.map((d: any)=>d.id))
     items.forEach(item => {
       if (!item.id) return
       batch.set(adminDb.collection(col).doc(item.id), item, { merge: false })

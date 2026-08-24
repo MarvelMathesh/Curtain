@@ -5,7 +5,15 @@ import { DB, User } from './types'
 import { seedVenues, seedEvents, showsFromEvents } from './seed'
 import { v4 as uuid } from 'uuid'
 import { randomBytes } from 'crypto'
-import { shouldUseFirestore } from './firebase-admin'
+
+// NOTE: firebase-admin is intentionally NOT statically imported here.
+// Static import pulls the 60MB SDK (with native grpc deps) into every
+// serverless function on Vercel and can crash the bundle at module load.
+// It is loaded lazily via dynamic import only when USE_FIRESTORE=true.
+
+function useFirestoreFlag(): boolean {
+  return process.env.USE_FIRESTORE === 'true'
+}
 
 // In serverless (Vercel) the repo FS is read-only/ephemeral; /tmp is the only writable.
 // We keep file DB for demo/dev only. In production, warn and use /tmp.
@@ -207,7 +215,7 @@ function escapeHtml(s: string) {
 
 export function findUserByEmail(email: string): User | undefined {
   // sync version for file DB; for Firestore use findUserByEmailAsync
-  if (shouldUseFirestore()) {
+  if (useFirestoreFlag()) {
     // In Firestore mode, this sync version may be stale; callers should use async version
     console.warn('[db] findUserByEmail sync called with Firestore enabled — use findUserByEmailAsync')
     return undefined
@@ -216,7 +224,7 @@ export function findUserByEmail(email: string): User | undefined {
 }
 
 export async function findUserByEmailAsync(email: string): Promise<User | undefined> {
-  if (shouldUseFirestore()) {
+  if (useFirestoreFlag()) {
     const db = await getDBAsync()
     return db.users.find(u=> u.email.toLowerCase()===email.toLowerCase())
   }
@@ -225,7 +233,7 @@ export async function findUserByEmailAsync(email: string): Promise<User | undefi
 
 // Async wrappers that auto-select Firestore vs file DB
 export async function getDBAsync(): Promise<DB> {
-  if (shouldUseFirestore()) {
+  if (useFirestoreFlag()) {
     const { getDbFirestore } = await import('./db-firestore')
     const db = await getDbFirestore()
     // run cleanup in memory then persist if changed (Firestore batch will handle)
@@ -241,7 +249,7 @@ export async function getDBAsync(): Promise<DB> {
 }
 
 export async function saveDBAsync(db: DB): Promise<void> {
-  if (shouldUseFirestore()) {
+  if (useFirestoreFlag()) {
     const { updateDbFirestore } = await import('./db-firestore')
     await updateDbFirestore(d => { Object.assign(d, db) })
     return
@@ -250,7 +258,7 @@ export async function saveDBAsync(db: DB): Promise<void> {
 }
 
 export async function updateDBAsync(fn: (db: DB) => void | Promise<void>): Promise<DB> {
-  if (shouldUseFirestore()) {
+  if (useFirestoreFlag()) {
     const { updateDbFirestore } = await import('./db-firestore')
     return updateDbFirestore(fn)
   }
@@ -258,17 +266,17 @@ export async function updateDBAsync(fn: (db: DB) => void | Promise<void>): Promi
 }
 
 export async function resetDBAsync(): Promise<DB> {
-  if (shouldUseFirestore()) {
+  if (useFirestoreFlag()) {
     const { getDbFirestore } = await import('./db-firestore')
     // clear Firestore and reseed via ensureSeeded logic
-    const adminDb = (await import('./firebase-admin')).getAdminDb()
+    const adminDb = await (await import('./firebase-admin')).getAdminDb()
     if (adminDb) {
       // delete existing collections
       const cols = ['users','venues','events','shows','bookings','waitlist','emails','meta'] as const
       for (const col of cols) {
         const snap = await adminDb.collection(col).get()
         const batch = adminDb.batch()
-        snap.docs.forEach(d => batch.delete(d.ref))
+        snap.docs.forEach((d: any) => batch.delete(d.ref))
         await batch.commit()
       }
     }
