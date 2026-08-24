@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB, updateDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync, updateDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 
 function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!))
@@ -24,7 +24,7 @@ function isValidTimeHHMM(s: string): boolean {
 
 export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const db = getDB()
+  const db = await getDBAsync()
   const event = db.events.find((e) => e.id === id)
   if (!event) return NextResponse.json({ error: 'Event not found' }, { status: 404 })
   const venue = db.venues.find((v) => v.id === event.venueId) || null
@@ -44,7 +44,7 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ id:
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user || (user.role !== 'organiser' && user.role !== 'admin')) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
   }
@@ -52,7 +52,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
   let error: string | null = null
   let status = 404
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const idx = db.events.findIndex((e) => e.id === id)
     if (idx === -1) {
       error = 'Not found'
@@ -96,7 +96,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user || (user.role !== 'organiser' && user.role !== 'admin')) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
   }
@@ -161,7 +161,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   let error: string | null = null
   let status = 400
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const event = db.events.find((e) => e.id === id)
     if (!event) {
       error = 'Not found'

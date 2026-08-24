@@ -40,6 +40,55 @@ export function getUserFromToken(token?: string): User | null {
   return getDB().users.find(u=> u.id===payload.id) || null
 }
 
+export async function getUserFromTokenAsync(token?: string): Promise<User | null> {
+  if (!token) return null
+  // Try Firebase ID token first if admin is ready and token looks like JWT with firebase claim
+  try {
+    const { getAdminAuthSafe } = await import('./firebase-admin')
+    const adminAuth = getAdminAuthSafe()
+    if (adminAuth) {
+      try {
+        const decoded = await adminAuth.verifyIdToken(token)
+        // Firebase token verified — find user by uid (we store firebaseUid in DB) or email
+        const email = (decoded as any).email as string | undefined
+        if (email) {
+          const { getDBAsync } = await import('./db')
+          const db = await getDBAsync()
+          const byEmail = db.users.find(u=> u.email.toLowerCase()===email.toLowerCase())
+          if (byEmail) return byEmail
+          // fallback: find by firebaseUid if we store it
+          const byUid = db.users.find((u: any)=> (u as any).firebaseUid === decoded.uid)
+          if (byUid) return byUid
+        }
+      } catch {}
+    }
+  } catch {}
+  const payload = verifyToken(token)
+  if (!payload) return null
+  // Use async DB when Firestore enabled
+  try {
+    const { shouldUseFirestore } = await import('./firebase-admin')
+    if (shouldUseFirestore()) {
+      const { getDBAsync } = await import('./db')
+      const db = await getDBAsync()
+      return db.users.find(u=> u.id===payload.id) || null
+    }
+  } catch {}
+  return getDB().users.find(u=> u.id===payload.id) || null
+}
+
+export async function verifyFirebaseIdToken(idToken: string): Promise<{ uid: string; email?: string; name?: string } | null> {
+  try {
+    const { getAdminAuthSafe } = await import('./firebase-admin')
+    const adminAuth = getAdminAuthSafe()
+    if (!adminAuth) return null
+    const decoded = await adminAuth.verifyIdToken(idToken)
+    return { uid: decoded.uid, email: (decoded as any).email, name: (decoded as any).name }
+  } catch {
+    return null
+  }
+}
+
 export function getTokenFromRequest(req: Request): string | null {
   const cookie = req.headers.get('cookie') || ''
   const m = cookie.match(/(?:^|;\s*)curtain_token=([^;]+)/)

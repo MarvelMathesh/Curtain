@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB, updateDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync, updateDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 import { v4 as uuid } from 'uuid'
 
 function escapeHtml(s: string): string {
@@ -34,7 +34,7 @@ function sanitizeSearch(raw: string): string {
 }
 
 export async function GET(req: NextRequest) {
-  const db = getDB()
+  const db = await getDBAsync()
   const { searchParams } = new URL(req.url)
   const rawSearch = searchParams.get('search') || ''
   const search = sanitizeSearch(rawSearch).toLowerCase()
@@ -99,7 +99,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user || (user.role !== 'organiser' && user.role !== 'admin')) {
     return NextResponse.json({ error: 'Organiser or Admin only' }, { status: 403 })
   }
@@ -181,7 +181,7 @@ export async function POST(req: NextRequest) {
   let err: string | null = null
   let errStatus = 400
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const venue = db.venues.find((v) => v.id === venueId)
     if (!venue) {
       err = 'Venue not found'

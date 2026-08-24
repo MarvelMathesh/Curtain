@@ -63,7 +63,7 @@ export function SeatMap({
                         className={cn(
                           "relative aspect-square w-full rounded-[7px] border text-[10px] sm:text-xs font-semibold transition-all flex flex-col items-center justify-center leading-none",
                           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                          isAvailable && "bg-white hover:bg-amber-50 hover:border-amber-400 hover:shadow-sm hover:-translate-y-0.5",
+                          isAvailable && "bg-white text-zinc-900 border-zinc-200 hover:bg-amber-50 hover:border-amber-400 hover:text-zinc-900 hover:shadow-sm hover:-translate-y-0.5",
                           isSelected && "bg-amber-100 border-amber-400 text-amber-900 dark:bg-amber-500/20 dark:text-amber-200 dark:border-amber-500/40 shadow-sm -translate-y-0.5 ring-1 ring-amber-400",
                           isHeld && "bg-zinc-200 border-zinc-300 text-zinc-500 cursor-not-allowed",
                           isBooked && "bg-zinc-900 border-zinc-900 text-white cursor-not-allowed",

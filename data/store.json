@@ -1,0 +1,8473 @@
+{
+  "users": [
+    {
+      "id": "bedadd9d-0d6d-4a80-a01d-1876545d28bd",
+      "email": "admin@curtain.in",
+      "name": "Curtain Admin",
+      "passwordHash": "$2b$10$COZQo38U3AAphe9hbZLhlO7HQWVzvWCxiDTvDJlrucs030Pxx/eAe",
+      "role": "admin",
+      "createdAt": "2026-08-24T18:40:47.076Z"
+    },
+    {
+      "id": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "email": "organiser@curtain.in",
+      "name": "Riya Mehta",
+      "passwordHash": "$2b$10$ngo2DrM8r5JdgCclvCUzFuy4JIn88VSA46uuFeJJpMktdx573Vb8K",
+      "role": "organiser",
+      "createdAt": "2026-08-24T18:40:47.334Z"
+    },
+    {
+      "id": "2c9536d5-a74f-4281-afc4-04f61d652eea",
+      "email": "customer@curtain.in",
+      "name": "Aarav Sharma",
+      "passwordHash": "$2b$10$iv4.hYeFRkOLhkiemA2BhOgjoAyLvpKArSCP1.Z0DF5UObdXxBzle",
+      "role": "customer",
+      "createdAt": "2026-08-24T18:40:47.518Z"
+    }
+  ],
+  "venues": [
+    {
+      "id": "v1",
+      "name": "Grand Rex Hall",
+      "city": "Mumbai",
+      "address": "Bandra Kurla Complex, Mumbai",
+      "image": "https://images.unsplash.com/photo-1518834107812-67b0b288f498?w=800&q=80",
+      "rows": 8,
+      "cols": 12,
+      "seats": [
+        {
+          "id": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "id": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "id": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "id": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "id": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "id": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "id": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "id": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "id": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "x": 9,
+          "y": 1
+        },
+        {
+          "id": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "x": 10,
+          "y": 1
+        },
+        {
+          "id": "A11",
+          "row": "A",
+          "number": 11,
+          "label": "A11",
+          "category": "Premium",
+          "x": 11,
+          "y": 1
+        },
+        {
+          "id": "A12",
+          "row": "A",
+          "number": 12,
+          "label": "A12",
+          "category": "Premium",
+          "x": 12,
+          "y": 1
+        },
+        {
+          "id": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "id": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "id": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "id": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "id": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "id": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "id": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "id": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "x": 9,
+          "y": 2
+        },
+        {
+          "id": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "x": 10,
+          "y": 2
+        },
+        {
+          "id": "B11",
+          "row": "B",
+          "number": 11,
+          "label": "B11",
+          "category": "Premium",
+          "x": 11,
+          "y": 2
+        },
+        {
+          "id": "B12",
+          "row": "B",
+          "number": 12,
+          "label": "B12",
+          "category": "Premium",
+          "x": 12,
+          "y": 2
+        },
+        {
+          "id": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "id": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "id": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "id": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "id": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "x": 10,
+          "y": 3
+        },
+        {
+          "id": "C11",
+          "row": "C",
+          "number": 11,
+          "label": "C11",
+          "category": "Standard",
+          "x": 11,
+          "y": 3
+        },
+        {
+          "id": "C12",
+          "row": "C",
+          "number": 12,
+          "label": "C12",
+          "category": "Standard",
+          "x": 12,
+          "y": 3
+        },
+        {
+          "id": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "id": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "id": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "id": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "id": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "id": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "x": 9,
+          "y": 4
+        },
+        {
+          "id": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "x": 10,
+          "y": 4
+        },
+        {
+          "id": "D11",
+          "row": "D",
+          "number": 11,
+          "label": "D11",
+          "category": "Standard",
+          "x": 11,
+          "y": 4
+        },
+        {
+          "id": "D12",
+          "row": "D",
+          "number": 12,
+          "label": "D12",
+          "category": "Standard",
+          "x": 12,
+          "y": 4
+        },
+        {
+          "id": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "id": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "id": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "id": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "id": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "id": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "id": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "id": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "id": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "x": 9,
+          "y": 5
+        },
+        {
+          "id": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "x": 10,
+          "y": 5
+        },
+        {
+          "id": "E11",
+          "row": "E",
+          "number": 11,
+          "label": "E11",
+          "category": "Standard",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "id": "E12",
+          "row": "E",
+          "number": 12,
+          "label": "E12",
+          "category": "Standard",
+          "x": 12,
+          "y": 5
+        },
+        {
+          "id": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "id": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "id": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "id": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "id": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "id": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "id": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "x": 8,
+          "y": 6
+        },
+        {
+          "id": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "x": 9,
+          "y": 6
+        },
+        {
+          "id": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "x": 10,
+          "y": 6
+        },
+        {
+          "id": "F11",
+          "row": "F",
+          "number": 11,
+          "label": "F11",
+          "category": "Economy",
+          "x": 11,
+          "y": 6
+        },
+        {
+          "id": "F12",
+          "row": "F",
+          "number": 12,
+          "label": "F12",
+          "category": "Economy",
+          "x": 12,
+          "y": 6
+        },
+        {
+          "id": "G1",
+          "row": "G",
+          "number": 1,
+          "label": "G1",
+          "category": "Economy",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "id": "G2",
+          "row": "G",
+          "number": 2,
+          "label": "G2",
+          "category": "Economy",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "id": "G3",
+          "row": "G",
+          "number": 3,
+          "label": "G3",
+          "category": "Economy",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "id": "G4",
+          "row": "G",
+          "number": 4,
+          "label": "G4",
+          "category": "Economy",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "id": "G5",
+          "row": "G",
+          "number": 5,
+          "label": "G5",
+          "category": "Economy",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "id": "G6",
+          "row": "G",
+          "number": 6,
+          "label": "G6",
+          "category": "Economy",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "id": "G7",
+          "row": "G",
+          "number": 7,
+          "label": "G7",
+          "category": "Economy",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "id": "G8",
+          "row": "G",
+          "number": 8,
+          "label": "G8",
+          "category": "Economy",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "id": "G9",
+          "row": "G",
+          "number": 9,
+          "label": "G9",
+          "category": "Economy",
+          "x": 9,
+          "y": 7
+        },
+        {
+          "id": "G10",
+          "row": "G",
+          "number": 10,
+          "label": "G10",
+          "category": "Economy",
+          "x": 10,
+          "y": 7
+        },
+        {
+          "id": "G11",
+          "row": "G",
+          "number": 11,
+          "label": "G11",
+          "category": "Economy",
+          "x": 11,
+          "y": 7
+        },
+        {
+          "id": "G12",
+          "row": "G",
+          "number": 12,
+          "label": "G12",
+          "category": "Economy",
+          "x": 12,
+          "y": 7
+        },
+        {
+          "id": "H1",
+          "row": "H",
+          "number": 1,
+          "label": "H1",
+          "category": "Economy",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "id": "H2",
+          "row": "H",
+          "number": 2,
+          "label": "H2",
+          "category": "Economy",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "id": "H3",
+          "row": "H",
+          "number": 3,
+          "label": "H3",
+          "category": "Economy",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "id": "H4",
+          "row": "H",
+          "number": 4,
+          "label": "H4",
+          "category": "Economy",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "id": "H5",
+          "row": "H",
+          "number": 5,
+          "label": "H5",
+          "category": "Economy",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "id": "H6",
+          "row": "H",
+          "number": 6,
+          "label": "H6",
+          "category": "Economy",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "id": "H7",
+          "row": "H",
+          "number": 7,
+          "label": "H7",
+          "category": "Economy",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "id": "H8",
+          "row": "H",
+          "number": 8,
+          "label": "H8",
+          "category": "Economy",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "id": "H9",
+          "row": "H",
+          "number": 9,
+          "label": "H9",
+          "category": "Economy",
+          "x": 9,
+          "y": 8
+        },
+        {
+          "id": "H10",
+          "row": "H",
+          "number": 10,
+          "label": "H10",
+          "category": "Economy",
+          "x": 10,
+          "y": 8
+        },
+        {
+          "id": "H11",
+          "row": "H",
+          "number": 11,
+          "label": "H11",
+          "category": "Economy",
+          "x": 11,
+          "y": 8
+        },
+        {
+          "id": "H12",
+          "row": "H",
+          "number": 12,
+          "label": "H12",
+          "category": "Economy",
+          "x": 12,
+          "y": 8
+        }
+      ],
+      "createdBy": "bedadd9d-0d6d-4a80-a01d-1876545d28bd",
+      "createdAt": "2026-08-24T18:40:47.518Z"
+    },
+    {
+      "id": "v2",
+      "name": "Symphony Arena",
+      "city": "Bangalore",
+      "address": "MG Road, Bangalore",
+      "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80",
+      "rows": 10,
+      "cols": 14,
+      "seats": [
+        {
+          "id": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "id": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "id": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "id": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "id": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "id": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "id": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "id": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "id": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "x": 9,
+          "y": 1
+        },
+        {
+          "id": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "x": 10,
+          "y": 1
+        },
+        {
+          "id": "A11",
+          "row": "A",
+          "number": 11,
+          "label": "A11",
+          "category": "Premium",
+          "x": 11,
+          "y": 1
+        },
+        {
+          "id": "A12",
+          "row": "A",
+          "number": 12,
+          "label": "A12",
+          "category": "Premium",
+          "x": 12,
+          "y": 1
+        },
+        {
+          "id": "A13",
+          "row": "A",
+          "number": 13,
+          "label": "A13",
+          "category": "Premium",
+          "x": 13,
+          "y": 1
+        },
+        {
+          "id": "A14",
+          "row": "A",
+          "number": 14,
+          "label": "A14",
+          "category": "Premium",
+          "x": 14,
+          "y": 1
+        },
+        {
+          "id": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "id": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "id": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "id": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "id": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "id": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "id": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "id": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "x": 9,
+          "y": 2
+        },
+        {
+          "id": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "x": 10,
+          "y": 2
+        },
+        {
+          "id": "B11",
+          "row": "B",
+          "number": 11,
+          "label": "B11",
+          "category": "Premium",
+          "x": 11,
+          "y": 2
+        },
+        {
+          "id": "B12",
+          "row": "B",
+          "number": 12,
+          "label": "B12",
+          "category": "Premium",
+          "x": 12,
+          "y": 2
+        },
+        {
+          "id": "B13",
+          "row": "B",
+          "number": 13,
+          "label": "B13",
+          "category": "Premium",
+          "x": 13,
+          "y": 2
+        },
+        {
+          "id": "B14",
+          "row": "B",
+          "number": 14,
+          "label": "B14",
+          "category": "Premium",
+          "x": 14,
+          "y": 2
+        },
+        {
+          "id": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "id": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "id": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "id": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "id": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "x": 10,
+          "y": 3
+        },
+        {
+          "id": "C11",
+          "row": "C",
+          "number": 11,
+          "label": "C11",
+          "category": "Standard",
+          "x": 11,
+          "y": 3
+        },
+        {
+          "id": "C12",
+          "row": "C",
+          "number": 12,
+          "label": "C12",
+          "category": "Standard",
+          "x": 12,
+          "y": 3
+        },
+        {
+          "id": "C13",
+          "row": "C",
+          "number": 13,
+          "label": "C13",
+          "category": "Standard",
+          "x": 13,
+          "y": 3
+        },
+        {
+          "id": "C14",
+          "row": "C",
+          "number": 14,
+          "label": "C14",
+          "category": "Standard",
+          "x": 14,
+          "y": 3
+        },
+        {
+          "id": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "id": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "id": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "id": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "id": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "id": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "x": 9,
+          "y": 4
+        },
+        {
+          "id": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "x": 10,
+          "y": 4
+        },
+        {
+          "id": "D11",
+          "row": "D",
+          "number": 11,
+          "label": "D11",
+          "category": "Standard",
+          "x": 11,
+          "y": 4
+        },
+        {
+          "id": "D12",
+          "row": "D",
+          "number": 12,
+          "label": "D12",
+          "category": "Standard",
+          "x": 12,
+          "y": 4
+        },
+        {
+          "id": "D13",
+          "row": "D",
+          "number": 13,
+          "label": "D13",
+          "category": "Standard",
+          "x": 13,
+          "y": 4
+        },
+        {
+          "id": "D14",
+          "row": "D",
+          "number": 14,
+          "label": "D14",
+          "category": "Standard",
+          "x": 14,
+          "y": 4
+        },
+        {
+          "id": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "id": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "id": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "id": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "id": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "id": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "id": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "id": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "id": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "x": 9,
+          "y": 5
+        },
+        {
+          "id": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "x": 10,
+          "y": 5
+        },
+        {
+          "id": "E11",
+          "row": "E",
+          "number": 11,
+          "label": "E11",
+          "category": "Standard",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "id": "E12",
+          "row": "E",
+          "number": 12,
+          "label": "E12",
+          "category": "Standard",
+          "x": 12,
+          "y": 5
+        },
+        {
+          "id": "E13",
+          "row": "E",
+          "number": 13,
+          "label": "E13",
+          "category": "Standard",
+          "x": 13,
+          "y": 5
+        },
+        {
+          "id": "E14",
+          "row": "E",
+          "number": 14,
+          "label": "E14",
+          "category": "Standard",
+          "x": 14,
+          "y": 5
+        },
+        {
+          "id": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "id": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "id": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "id": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "id": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "id": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "id": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "x": 8,
+          "y": 6
+        },
+        {
+          "id": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "x": 9,
+          "y": 6
+        },
+        {
+          "id": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "x": 10,
+          "y": 6
+        },
+        {
+          "id": "F11",
+          "row": "F",
+          "number": 11,
+          "label": "F11",
+          "category": "Economy",
+          "x": 11,
+          "y": 6
+        },
+        {
+          "id": "F12",
+          "row": "F",
+          "number": 12,
+          "label": "F12",
+          "category": "Economy",
+          "x": 12,
+          "y": 6
+        },
+        {
+          "id": "F13",
+          "row": "F",
+          "number": 13,
+          "label": "F13",
+          "category": "Economy",
+          "x": 13,
+          "y": 6
+        },
+        {
+          "id": "F14",
+          "row": "F",
+          "number": 14,
+          "label": "F14",
+          "category": "Economy",
+          "x": 14,
+          "y": 6
+        },
+        {
+          "id": "G1",
+          "row": "G",
+          "number": 1,
+          "label": "G1",
+          "category": "Economy",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "id": "G2",
+          "row": "G",
+          "number": 2,
+          "label": "G2",
+          "category": "Economy",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "id": "G3",
+          "row": "G",
+          "number": 3,
+          "label": "G3",
+          "category": "Economy",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "id": "G4",
+          "row": "G",
+          "number": 4,
+          "label": "G4",
+          "category": "Economy",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "id": "G5",
+          "row": "G",
+          "number": 5,
+          "label": "G5",
+          "category": "Economy",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "id": "G6",
+          "row": "G",
+          "number": 6,
+          "label": "G6",
+          "category": "Economy",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "id": "G7",
+          "row": "G",
+          "number": 7,
+          "label": "G7",
+          "category": "Economy",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "id": "G8",
+          "row": "G",
+          "number": 8,
+          "label": "G8",
+          "category": "Economy",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "id": "G9",
+          "row": "G",
+          "number": 9,
+          "label": "G9",
+          "category": "Economy",
+          "x": 9,
+          "y": 7
+        },
+        {
+          "id": "G10",
+          "row": "G",
+          "number": 10,
+          "label": "G10",
+          "category": "Economy",
+          "x": 10,
+          "y": 7
+        },
+        {
+          "id": "G11",
+          "row": "G",
+          "number": 11,
+          "label": "G11",
+          "category": "Economy",
+          "x": 11,
+          "y": 7
+        },
+        {
+          "id": "G12",
+          "row": "G",
+          "number": 12,
+          "label": "G12",
+          "category": "Economy",
+          "x": 12,
+          "y": 7
+        },
+        {
+          "id": "G13",
+          "row": "G",
+          "number": 13,
+          "label": "G13",
+          "category": "Economy",
+          "x": 13,
+          "y": 7
+        },
+        {
+          "id": "G14",
+          "row": "G",
+          "number": 14,
+          "label": "G14",
+          "category": "Economy",
+          "x": 14,
+          "y": 7
+        },
+        {
+          "id": "H1",
+          "row": "H",
+          "number": 1,
+          "label": "H1",
+          "category": "Economy",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "id": "H2",
+          "row": "H",
+          "number": 2,
+          "label": "H2",
+          "category": "Economy",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "id": "H3",
+          "row": "H",
+          "number": 3,
+          "label": "H3",
+          "category": "Economy",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "id": "H4",
+          "row": "H",
+          "number": 4,
+          "label": "H4",
+          "category": "Economy",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "id": "H5",
+          "row": "H",
+          "number": 5,
+          "label": "H5",
+          "category": "Economy",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "id": "H6",
+          "row": "H",
+          "number": 6,
+          "label": "H6",
+          "category": "Economy",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "id": "H7",
+          "row": "H",
+          "number": 7,
+          "label": "H7",
+          "category": "Economy",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "id": "H8",
+          "row": "H",
+          "number": 8,
+          "label": "H8",
+          "category": "Economy",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "id": "H9",
+          "row": "H",
+          "number": 9,
+          "label": "H9",
+          "category": "Economy",
+          "x": 9,
+          "y": 8
+        },
+        {
+          "id": "H10",
+          "row": "H",
+          "number": 10,
+          "label": "H10",
+          "category": "Economy",
+          "x": 10,
+          "y": 8
+        },
+        {
+          "id": "H11",
+          "row": "H",
+          "number": 11,
+          "label": "H11",
+          "category": "Economy",
+          "x": 11,
+          "y": 8
+        },
+        {
+          "id": "H12",
+          "row": "H",
+          "number": 12,
+          "label": "H12",
+          "category": "Economy",
+          "x": 12,
+          "y": 8
+        },
+        {
+          "id": "H13",
+          "row": "H",
+          "number": 13,
+          "label": "H13",
+          "category": "Economy",
+          "x": 13,
+          "y": 8
+        },
+        {
+          "id": "H14",
+          "row": "H",
+          "number": 14,
+          "label": "H14",
+          "category": "Economy",
+          "x": 14,
+          "y": 8
+        },
+        {
+          "id": "I1",
+          "row": "I",
+          "number": 1,
+          "label": "I1",
+          "category": "Economy",
+          "x": 1,
+          "y": 9
+        },
+        {
+          "id": "I2",
+          "row": "I",
+          "number": 2,
+          "label": "I2",
+          "category": "Economy",
+          "x": 2,
+          "y": 9
+        },
+        {
+          "id": "I3",
+          "row": "I",
+          "number": 3,
+          "label": "I3",
+          "category": "Economy",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "I4",
+          "row": "I",
+          "number": 4,
+          "label": "I4",
+          "category": "Economy",
+          "x": 4,
+          "y": 9
+        },
+        {
+          "id": "I5",
+          "row": "I",
+          "number": 5,
+          "label": "I5",
+          "category": "Economy",
+          "x": 5,
+          "y": 9
+        },
+        {
+          "id": "I6",
+          "row": "I",
+          "number": 6,
+          "label": "I6",
+          "category": "Economy",
+          "x": 6,
+          "y": 9
+        },
+        {
+          "id": "I7",
+          "row": "I",
+          "number": 7,
+          "label": "I7",
+          "category": "Economy",
+          "x": 7,
+          "y": 9
+        },
+        {
+          "id": "I8",
+          "row": "I",
+          "number": 8,
+          "label": "I8",
+          "category": "Economy",
+          "x": 8,
+          "y": 9
+        },
+        {
+          "id": "I9",
+          "row": "I",
+          "number": 9,
+          "label": "I9",
+          "category": "Economy",
+          "x": 9,
+          "y": 9
+        },
+        {
+          "id": "I10",
+          "row": "I",
+          "number": 10,
+          "label": "I10",
+          "category": "Economy",
+          "x": 10,
+          "y": 9
+        },
+        {
+          "id": "I11",
+          "row": "I",
+          "number": 11,
+          "label": "I11",
+          "category": "Economy",
+          "x": 11,
+          "y": 9
+        },
+        {
+          "id": "I12",
+          "row": "I",
+          "number": 12,
+          "label": "I12",
+          "category": "Economy",
+          "x": 12,
+          "y": 9
+        },
+        {
+          "id": "I13",
+          "row": "I",
+          "number": 13,
+          "label": "I13",
+          "category": "Economy",
+          "x": 13,
+          "y": 9
+        },
+        {
+          "id": "I14",
+          "row": "I",
+          "number": 14,
+          "label": "I14",
+          "category": "Economy",
+          "x": 14,
+          "y": 9
+        },
+        {
+          "id": "J1",
+          "row": "J",
+          "number": 1,
+          "label": "J1",
+          "category": "Economy",
+          "x": 1,
+          "y": 10
+        },
+        {
+          "id": "J2",
+          "row": "J",
+          "number": 2,
+          "label": "J2",
+          "category": "Economy",
+          "x": 2,
+          "y": 10
+        },
+        {
+          "id": "J3",
+          "row": "J",
+          "number": 3,
+          "label": "J3",
+          "category": "Economy",
+          "x": 3,
+          "y": 10
+        },
+        {
+          "id": "J4",
+          "row": "J",
+          "number": 4,
+          "label": "J4",
+          "category": "Economy",
+          "x": 4,
+          "y": 10
+        },
+        {
+          "id": "J5",
+          "row": "J",
+          "number": 5,
+          "label": "J5",
+          "category": "Economy",
+          "x": 5,
+          "y": 10
+        },
+        {
+          "id": "J6",
+          "row": "J",
+          "number": 6,
+          "label": "J6",
+          "category": "Economy",
+          "x": 6,
+          "y": 10
+        },
+        {
+          "id": "J7",
+          "row": "J",
+          "number": 7,
+          "label": "J7",
+          "category": "Economy",
+          "x": 7,
+          "y": 10
+        },
+        {
+          "id": "J8",
+          "row": "J",
+          "number": 8,
+          "label": "J8",
+          "category": "Economy",
+          "x": 8,
+          "y": 10
+        },
+        {
+          "id": "J9",
+          "row": "J",
+          "number": 9,
+          "label": "J9",
+          "category": "Economy",
+          "x": 9,
+          "y": 10
+        },
+        {
+          "id": "J10",
+          "row": "J",
+          "number": 10,
+          "label": "J10",
+          "category": "Economy",
+          "x": 10,
+          "y": 10
+        },
+        {
+          "id": "J11",
+          "row": "J",
+          "number": 11,
+          "label": "J11",
+          "category": "Economy",
+          "x": 11,
+          "y": 10
+        },
+        {
+          "id": "J12",
+          "row": "J",
+          "number": 12,
+          "label": "J12",
+          "category": "Economy",
+          "x": 12,
+          "y": 10
+        },
+        {
+          "id": "J13",
+          "row": "J",
+          "number": 13,
+          "label": "J13",
+          "category": "Economy",
+          "x": 13,
+          "y": 10
+        },
+        {
+          "id": "J14",
+          "row": "J",
+          "number": 14,
+          "label": "J14",
+          "category": "Economy",
+          "x": 14,
+          "y": 10
+        }
+      ],
+      "createdBy": "bedadd9d-0d6d-4a80-a01d-1876545d28bd",
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "v3",
+      "name": "Curtain Studio Theatre",
+      "city": "Delhi",
+      "address": "Connaught Place, Delhi",
+      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
+      "rows": 6,
+      "cols": 10,
+      "seats": [
+        {
+          "id": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "id": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "id": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "id": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "id": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "id": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "id": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "id": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "id": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "x": 9,
+          "y": 1
+        },
+        {
+          "id": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "x": 10,
+          "y": 1
+        },
+        {
+          "id": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "id": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "id": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "id": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "id": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "id": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "id": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "id": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "x": 9,
+          "y": 2
+        },
+        {
+          "id": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "x": 10,
+          "y": 2
+        },
+        {
+          "id": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "id": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "id": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "id": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "id": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "x": 10,
+          "y": 3
+        },
+        {
+          "id": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "id": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "id": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "id": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "id": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "id": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "x": 9,
+          "y": 4
+        },
+        {
+          "id": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "x": 10,
+          "y": 4
+        },
+        {
+          "id": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "id": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "id": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "id": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "id": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "id": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "id": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "id": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "id": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "x": 9,
+          "y": 5
+        },
+        {
+          "id": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "x": 10,
+          "y": 5
+        },
+        {
+          "id": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "id": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "id": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "id": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "id": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "id": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "id": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "x": 8,
+          "y": 6
+        },
+        {
+          "id": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "x": 9,
+          "y": 6
+        },
+        {
+          "id": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "x": 10,
+          "y": 6
+        }
+      ],
+      "createdBy": "bedadd9d-0d6d-4a80-a01d-1876545d28bd",
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "e1",
+      "title": "Dune: Part Two - IMAX Premiere",
+      "type": "movie",
+      "description": "Experience Denis Villeneuve’s epic on the biggest screen. 4K IMAX with Dolby Atmos. Limited premiere night with filmmaker Q&A.",
+      "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80",
+      "venueId": "v1",
+      "organiserId": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "date": "2026-08-26",
+      "time": "19:30",
+      "durationMinutes": 166,
+      "pricing": {
+        "Premium": 899,
+        "Standard": 549,
+        "Economy": 299
+      },
+      "createdAt": "2026-08-24T18:40:47.519Z",
+      "featured": true
+    },
+    {
+      "id": "e2",
+      "title": "A. R. Rahman - Live in Concert",
+      "type": "concert",
+      "description": "An unforgettable night with the Mozart of Madras. Full orchestra, choir and surprise guests. 3 hours of timeless melodies.",
+      "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+      "venueId": "v2",
+      "organiserId": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "date": "2026-08-29",
+      "time": "20:00",
+      "durationMinutes": 180,
+      "pricing": {
+        "Premium": 2499,
+        "Standard": 1299,
+        "Economy": 699
+      },
+      "createdAt": "2026-08-24T18:40:47.519Z",
+      "featured": true
+    },
+    {
+      "id": "e3",
+      "title": "The Midnight Atlas - Indie Night",
+      "type": "concert",
+      "description": "Intimate indie showcase featuring The Midnight Atlas, Paper Suns and guest DJ midnight set. General standing + seated Premium.",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+      "venueId": "v3",
+      "organiserId": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "date": "2026-08-27",
+      "time": "21:00",
+      "durationMinutes": 150,
+      "pricing": {
+        "Premium": 799,
+        "Standard": 449,
+        "Economy": 249
+      },
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "e4",
+      "title": "Spider-Verse: Beyond - Fan Screening",
+      "type": "movie",
+      "description": "First fan screening in India. Cosplay contest, limited poster, and post-credits surprise. English with subtitles.",
+      "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80",
+      "venueId": "v1",
+      "organiserId": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "date": "2026-08-25",
+      "time": "18:00",
+      "durationMinutes": 140,
+      "pricing": {
+        "Premium": 799,
+        "Standard": 499,
+        "Economy": 279
+      },
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "e5",
+      "title": "Nucleya - Bass Camp Festival",
+      "type": "concert",
+      "description": "Bass Camp returns. Nucleya headlines a night of heavy drops, lights and non-stop dance. 18+ only.",
+      "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80",
+      "venueId": "v2",
+      "organiserId": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "date": "2026-08-31",
+      "time": "22:00",
+      "durationMinutes": 240,
+      "pricing": {
+        "Premium": 1999,
+        "Standard": 999,
+        "Economy": 599
+      },
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "e6",
+      "title": "Barbenheimer Double Feature",
+      "type": "movie",
+      "description": "Back-to-back 70mm run: Oppenheimer followed by Barbie. Includes intermission dinner voucher. One ticket, two legends.",
+      "image": "https://images.unsplash.com/photo-1524712245354-2c4ba08e5d02?w=800&q=80",
+      "venueId": "v3",
+      "organiserId": "d48f079e-1342-45f0-8642-ea0cb3d8b8a3",
+      "date": "2026-08-28",
+      "time": "17:00",
+      "durationMinutes": 310,
+      "pricing": {
+        "Premium": 1099,
+        "Standard": 699,
+        "Economy": 399
+      },
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    }
+  ],
+  "shows": [
+    {
+      "id": "s-e1",
+      "eventId": "e1",
+      "venueId": "v1",
+      "date": "2026-08-26",
+      "time": "19:30",
+      "seats": [
+        {
+          "seatId": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A11",
+          "row": "A",
+          "number": 11,
+          "label": "A11",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "A12",
+          "row": "A",
+          "number": 12,
+          "label": "A12",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B11",
+          "row": "B",
+          "number": 11,
+          "label": "B11",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "B12",
+          "row": "B",
+          "number": 12,
+          "label": "B12",
+          "category": "Premium",
+          "price": 899,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C11",
+          "row": "C",
+          "number": 11,
+          "label": "C11",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "C12",
+          "row": "C",
+          "number": 12,
+          "label": "C12",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D11",
+          "row": "D",
+          "number": 11,
+          "label": "D11",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "D12",
+          "row": "D",
+          "number": 12,
+          "label": "D12",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E11",
+          "row": "E",
+          "number": 11,
+          "label": "E11",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "E12",
+          "row": "E",
+          "number": 12,
+          "label": "E12",
+          "category": "Standard",
+          "price": 549,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F11",
+          "row": "F",
+          "number": 11,
+          "label": "F11",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "F12",
+          "row": "F",
+          "number": 12,
+          "label": "F12",
+          "category": "Economy",
+          "price": 299,
+          "status": "booked",
+          "bookedBy": "2c9536d5-a74f-4281-afc4-04f61d652eea"
+        },
+        {
+          "seatId": "G1",
+          "row": "G",
+          "number": 1,
+          "label": "G1",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G2",
+          "row": "G",
+          "number": 2,
+          "label": "G2",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G3",
+          "row": "G",
+          "number": 3,
+          "label": "G3",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G4",
+          "row": "G",
+          "number": 4,
+          "label": "G4",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G5",
+          "row": "G",
+          "number": 5,
+          "label": "G5",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G6",
+          "row": "G",
+          "number": 6,
+          "label": "G6",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G7",
+          "row": "G",
+          "number": 7,
+          "label": "G7",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G8",
+          "row": "G",
+          "number": 8,
+          "label": "G8",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G9",
+          "row": "G",
+          "number": 9,
+          "label": "G9",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G10",
+          "row": "G",
+          "number": 10,
+          "label": "G10",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G11",
+          "row": "G",
+          "number": 11,
+          "label": "G11",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "G12",
+          "row": "G",
+          "number": 12,
+          "label": "G12",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H1",
+          "row": "H",
+          "number": 1,
+          "label": "H1",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H2",
+          "row": "H",
+          "number": 2,
+          "label": "H2",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H3",
+          "row": "H",
+          "number": 3,
+          "label": "H3",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H4",
+          "row": "H",
+          "number": 4,
+          "label": "H4",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H5",
+          "row": "H",
+          "number": 5,
+          "label": "H5",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H6",
+          "row": "H",
+          "number": 6,
+          "label": "H6",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H7",
+          "row": "H",
+          "number": 7,
+          "label": "H7",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H8",
+          "row": "H",
+          "number": 8,
+          "label": "H8",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H9",
+          "row": "H",
+          "number": 9,
+          "label": "H9",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H10",
+          "row": "H",
+          "number": 10,
+          "label": "H10",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H11",
+          "row": "H",
+          "number": 11,
+          "label": "H11",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        },
+        {
+          "seatId": "H12",
+          "row": "H",
+          "number": 12,
+          "label": "H12",
+          "category": "Economy",
+          "price": 299,
+          "status": "available"
+        }
+      ],
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "s-e2",
+      "eventId": "e2",
+      "venueId": "v2",
+      "date": "2026-08-29",
+      "time": "20:00",
+      "seats": [
+        {
+          "seatId": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A11",
+          "row": "A",
+          "number": 11,
+          "label": "A11",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A12",
+          "row": "A",
+          "number": 12,
+          "label": "A12",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A13",
+          "row": "A",
+          "number": 13,
+          "label": "A13",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "A14",
+          "row": "A",
+          "number": 14,
+          "label": "A14",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B11",
+          "row": "B",
+          "number": 11,
+          "label": "B11",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B12",
+          "row": "B",
+          "number": 12,
+          "label": "B12",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B13",
+          "row": "B",
+          "number": 13,
+          "label": "B13",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "B14",
+          "row": "B",
+          "number": 14,
+          "label": "B14",
+          "category": "Premium",
+          "price": 2499,
+          "status": "available"
+        },
+        {
+          "seatId": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C11",
+          "row": "C",
+          "number": 11,
+          "label": "C11",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C12",
+          "row": "C",
+          "number": 12,
+          "label": "C12",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C13",
+          "row": "C",
+          "number": 13,
+          "label": "C13",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "C14",
+          "row": "C",
+          "number": 14,
+          "label": "C14",
+          "category": "Standard",
+          "price": 1299,
+          "status": "held",
+          "heldBy": "2c9536d5-a74f-4281-afc4-04f61d652eea",
+          "heldUntil": "2026-08-24T18:51:11.133Z",
+          "holdId": "aac0591d-33ab-4e47-823d-e0e1dc8ec69f"
+        },
+        {
+          "seatId": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D11",
+          "row": "D",
+          "number": 11,
+          "label": "D11",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D12",
+          "row": "D",
+          "number": 12,
+          "label": "D12",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D13",
+          "row": "D",
+          "number": 13,
+          "label": "D13",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "D14",
+          "row": "D",
+          "number": 14,
+          "label": "D14",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E11",
+          "row": "E",
+          "number": 11,
+          "label": "E11",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E12",
+          "row": "E",
+          "number": 12,
+          "label": "E12",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E13",
+          "row": "E",
+          "number": 13,
+          "label": "E13",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "E14",
+          "row": "E",
+          "number": 14,
+          "label": "E14",
+          "category": "Standard",
+          "price": 1299,
+          "status": "available"
+        },
+        {
+          "seatId": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F11",
+          "row": "F",
+          "number": 11,
+          "label": "F11",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F12",
+          "row": "F",
+          "number": 12,
+          "label": "F12",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F13",
+          "row": "F",
+          "number": 13,
+          "label": "F13",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F14",
+          "row": "F",
+          "number": 14,
+          "label": "F14",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G1",
+          "row": "G",
+          "number": 1,
+          "label": "G1",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G2",
+          "row": "G",
+          "number": 2,
+          "label": "G2",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G3",
+          "row": "G",
+          "number": 3,
+          "label": "G3",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G4",
+          "row": "G",
+          "number": 4,
+          "label": "G4",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G5",
+          "row": "G",
+          "number": 5,
+          "label": "G5",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G6",
+          "row": "G",
+          "number": 6,
+          "label": "G6",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G7",
+          "row": "G",
+          "number": 7,
+          "label": "G7",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G8",
+          "row": "G",
+          "number": 8,
+          "label": "G8",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G9",
+          "row": "G",
+          "number": 9,
+          "label": "G9",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G10",
+          "row": "G",
+          "number": 10,
+          "label": "G10",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G11",
+          "row": "G",
+          "number": 11,
+          "label": "G11",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G12",
+          "row": "G",
+          "number": 12,
+          "label": "G12",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G13",
+          "row": "G",
+          "number": 13,
+          "label": "G13",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "G14",
+          "row": "G",
+          "number": 14,
+          "label": "G14",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H1",
+          "row": "H",
+          "number": 1,
+          "label": "H1",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H2",
+          "row": "H",
+          "number": 2,
+          "label": "H2",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H3",
+          "row": "H",
+          "number": 3,
+          "label": "H3",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H4",
+          "row": "H",
+          "number": 4,
+          "label": "H4",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H5",
+          "row": "H",
+          "number": 5,
+          "label": "H5",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H6",
+          "row": "H",
+          "number": 6,
+          "label": "H6",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H7",
+          "row": "H",
+          "number": 7,
+          "label": "H7",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H8",
+          "row": "H",
+          "number": 8,
+          "label": "H8",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H9",
+          "row": "H",
+          "number": 9,
+          "label": "H9",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H10",
+          "row": "H",
+          "number": 10,
+          "label": "H10",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H11",
+          "row": "H",
+          "number": 11,
+          "label": "H11",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H12",
+          "row": "H",
+          "number": 12,
+          "label": "H12",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H13",
+          "row": "H",
+          "number": 13,
+          "label": "H13",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "H14",
+          "row": "H",
+          "number": 14,
+          "label": "H14",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I1",
+          "row": "I",
+          "number": 1,
+          "label": "I1",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I2",
+          "row": "I",
+          "number": 2,
+          "label": "I2",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I3",
+          "row": "I",
+          "number": 3,
+          "label": "I3",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I4",
+          "row": "I",
+          "number": 4,
+          "label": "I4",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I5",
+          "row": "I",
+          "number": 5,
+          "label": "I5",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I6",
+          "row": "I",
+          "number": 6,
+          "label": "I6",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I7",
+          "row": "I",
+          "number": 7,
+          "label": "I7",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I8",
+          "row": "I",
+          "number": 8,
+          "label": "I8",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I9",
+          "row": "I",
+          "number": 9,
+          "label": "I9",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I10",
+          "row": "I",
+          "number": 10,
+          "label": "I10",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I11",
+          "row": "I",
+          "number": 11,
+          "label": "I11",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I12",
+          "row": "I",
+          "number": 12,
+          "label": "I12",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I13",
+          "row": "I",
+          "number": 13,
+          "label": "I13",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "I14",
+          "row": "I",
+          "number": 14,
+          "label": "I14",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J1",
+          "row": "J",
+          "number": 1,
+          "label": "J1",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J2",
+          "row": "J",
+          "number": 2,
+          "label": "J2",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J3",
+          "row": "J",
+          "number": 3,
+          "label": "J3",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J4",
+          "row": "J",
+          "number": 4,
+          "label": "J4",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J5",
+          "row": "J",
+          "number": 5,
+          "label": "J5",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J6",
+          "row": "J",
+          "number": 6,
+          "label": "J6",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J7",
+          "row": "J",
+          "number": 7,
+          "label": "J7",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J8",
+          "row": "J",
+          "number": 8,
+          "label": "J8",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J9",
+          "row": "J",
+          "number": 9,
+          "label": "J9",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J10",
+          "row": "J",
+          "number": 10,
+          "label": "J10",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J11",
+          "row": "J",
+          "number": 11,
+          "label": "J11",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J12",
+          "row": "J",
+          "number": 12,
+          "label": "J12",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J13",
+          "row": "J",
+          "number": 13,
+          "label": "J13",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "J14",
+          "row": "J",
+          "number": 14,
+          "label": "J14",
+          "category": "Economy",
+          "price": 699,
+          "status": "available"
+        }
+      ],
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "s-e3",
+      "eventId": "e3",
+      "venueId": "v3",
+      "date": "2026-08-27",
+      "time": "21:00",
+      "seats": [
+        {
+          "seatId": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "price": 449,
+          "status": "available"
+        },
+        {
+          "seatId": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        },
+        {
+          "seatId": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "price": 249,
+          "status": "available"
+        }
+      ],
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "s-e4",
+      "eventId": "e4",
+      "venueId": "v1",
+      "date": "2026-08-25",
+      "time": "18:00",
+      "seats": [
+        {
+          "seatId": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A11",
+          "row": "A",
+          "number": 11,
+          "label": "A11",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "A12",
+          "row": "A",
+          "number": 12,
+          "label": "A12",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B11",
+          "row": "B",
+          "number": 11,
+          "label": "B11",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "B12",
+          "row": "B",
+          "number": 12,
+          "label": "B12",
+          "category": "Premium",
+          "price": 799,
+          "status": "available"
+        },
+        {
+          "seatId": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C11",
+          "row": "C",
+          "number": 11,
+          "label": "C11",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "C12",
+          "row": "C",
+          "number": 12,
+          "label": "C12",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D11",
+          "row": "D",
+          "number": 11,
+          "label": "D11",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "D12",
+          "row": "D",
+          "number": 12,
+          "label": "D12",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E11",
+          "row": "E",
+          "number": 11,
+          "label": "E11",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "E12",
+          "row": "E",
+          "number": 12,
+          "label": "E12",
+          "category": "Standard",
+          "price": 499,
+          "status": "available"
+        },
+        {
+          "seatId": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F11",
+          "row": "F",
+          "number": 11,
+          "label": "F11",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "F12",
+          "row": "F",
+          "number": 12,
+          "label": "F12",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G1",
+          "row": "G",
+          "number": 1,
+          "label": "G1",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G2",
+          "row": "G",
+          "number": 2,
+          "label": "G2",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G3",
+          "row": "G",
+          "number": 3,
+          "label": "G3",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G4",
+          "row": "G",
+          "number": 4,
+          "label": "G4",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G5",
+          "row": "G",
+          "number": 5,
+          "label": "G5",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G6",
+          "row": "G",
+          "number": 6,
+          "label": "G6",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G7",
+          "row": "G",
+          "number": 7,
+          "label": "G7",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G8",
+          "row": "G",
+          "number": 8,
+          "label": "G8",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G9",
+          "row": "G",
+          "number": 9,
+          "label": "G9",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G10",
+          "row": "G",
+          "number": 10,
+          "label": "G10",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G11",
+          "row": "G",
+          "number": 11,
+          "label": "G11",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "G12",
+          "row": "G",
+          "number": 12,
+          "label": "G12",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H1",
+          "row": "H",
+          "number": 1,
+          "label": "H1",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H2",
+          "row": "H",
+          "number": 2,
+          "label": "H2",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H3",
+          "row": "H",
+          "number": 3,
+          "label": "H3",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H4",
+          "row": "H",
+          "number": 4,
+          "label": "H4",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H5",
+          "row": "H",
+          "number": 5,
+          "label": "H5",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H6",
+          "row": "H",
+          "number": 6,
+          "label": "H6",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H7",
+          "row": "H",
+          "number": 7,
+          "label": "H7",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H8",
+          "row": "H",
+          "number": 8,
+          "label": "H8",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H9",
+          "row": "H",
+          "number": 9,
+          "label": "H9",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H10",
+          "row": "H",
+          "number": 10,
+          "label": "H10",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H11",
+          "row": "H",
+          "number": 11,
+          "label": "H11",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        },
+        {
+          "seatId": "H12",
+          "row": "H",
+          "number": 12,
+          "label": "H12",
+          "category": "Economy",
+          "price": 279,
+          "status": "available"
+        }
+      ],
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "s-e5",
+      "eventId": "e5",
+      "venueId": "v2",
+      "date": "2026-08-31",
+      "time": "22:00",
+      "seats": [
+        {
+          "seatId": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A11",
+          "row": "A",
+          "number": 11,
+          "label": "A11",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A12",
+          "row": "A",
+          "number": 12,
+          "label": "A12",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A13",
+          "row": "A",
+          "number": 13,
+          "label": "A13",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "A14",
+          "row": "A",
+          "number": 14,
+          "label": "A14",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B11",
+          "row": "B",
+          "number": 11,
+          "label": "B11",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B12",
+          "row": "B",
+          "number": 12,
+          "label": "B12",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B13",
+          "row": "B",
+          "number": 13,
+          "label": "B13",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "B14",
+          "row": "B",
+          "number": 14,
+          "label": "B14",
+          "category": "Premium",
+          "price": 1999,
+          "status": "available"
+        },
+        {
+          "seatId": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C11",
+          "row": "C",
+          "number": 11,
+          "label": "C11",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C12",
+          "row": "C",
+          "number": 12,
+          "label": "C12",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C13",
+          "row": "C",
+          "number": 13,
+          "label": "C13",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "C14",
+          "row": "C",
+          "number": 14,
+          "label": "C14",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D11",
+          "row": "D",
+          "number": 11,
+          "label": "D11",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D12",
+          "row": "D",
+          "number": 12,
+          "label": "D12",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D13",
+          "row": "D",
+          "number": 13,
+          "label": "D13",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "D14",
+          "row": "D",
+          "number": 14,
+          "label": "D14",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E11",
+          "row": "E",
+          "number": 11,
+          "label": "E11",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E12",
+          "row": "E",
+          "number": 12,
+          "label": "E12",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E13",
+          "row": "E",
+          "number": 13,
+          "label": "E13",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "E14",
+          "row": "E",
+          "number": 14,
+          "label": "E14",
+          "category": "Standard",
+          "price": 999,
+          "status": "available"
+        },
+        {
+          "seatId": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F11",
+          "row": "F",
+          "number": 11,
+          "label": "F11",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F12",
+          "row": "F",
+          "number": 12,
+          "label": "F12",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F13",
+          "row": "F",
+          "number": 13,
+          "label": "F13",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "F14",
+          "row": "F",
+          "number": 14,
+          "label": "F14",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G1",
+          "row": "G",
+          "number": 1,
+          "label": "G1",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G2",
+          "row": "G",
+          "number": 2,
+          "label": "G2",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G3",
+          "row": "G",
+          "number": 3,
+          "label": "G3",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G4",
+          "row": "G",
+          "number": 4,
+          "label": "G4",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G5",
+          "row": "G",
+          "number": 5,
+          "label": "G5",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G6",
+          "row": "G",
+          "number": 6,
+          "label": "G6",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G7",
+          "row": "G",
+          "number": 7,
+          "label": "G7",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G8",
+          "row": "G",
+          "number": 8,
+          "label": "G8",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G9",
+          "row": "G",
+          "number": 9,
+          "label": "G9",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G10",
+          "row": "G",
+          "number": 10,
+          "label": "G10",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G11",
+          "row": "G",
+          "number": 11,
+          "label": "G11",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G12",
+          "row": "G",
+          "number": 12,
+          "label": "G12",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G13",
+          "row": "G",
+          "number": 13,
+          "label": "G13",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "G14",
+          "row": "G",
+          "number": 14,
+          "label": "G14",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H1",
+          "row": "H",
+          "number": 1,
+          "label": "H1",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H2",
+          "row": "H",
+          "number": 2,
+          "label": "H2",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H3",
+          "row": "H",
+          "number": 3,
+          "label": "H3",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H4",
+          "row": "H",
+          "number": 4,
+          "label": "H4",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H5",
+          "row": "H",
+          "number": 5,
+          "label": "H5",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H6",
+          "row": "H",
+          "number": 6,
+          "label": "H6",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H7",
+          "row": "H",
+          "number": 7,
+          "label": "H7",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H8",
+          "row": "H",
+          "number": 8,
+          "label": "H8",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H9",
+          "row": "H",
+          "number": 9,
+          "label": "H9",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H10",
+          "row": "H",
+          "number": 10,
+          "label": "H10",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H11",
+          "row": "H",
+          "number": 11,
+          "label": "H11",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H12",
+          "row": "H",
+          "number": 12,
+          "label": "H12",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H13",
+          "row": "H",
+          "number": 13,
+          "label": "H13",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "H14",
+          "row": "H",
+          "number": 14,
+          "label": "H14",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I1",
+          "row": "I",
+          "number": 1,
+          "label": "I1",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I2",
+          "row": "I",
+          "number": 2,
+          "label": "I2",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I3",
+          "row": "I",
+          "number": 3,
+          "label": "I3",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I4",
+          "row": "I",
+          "number": 4,
+          "label": "I4",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I5",
+          "row": "I",
+          "number": 5,
+          "label": "I5",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I6",
+          "row": "I",
+          "number": 6,
+          "label": "I6",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I7",
+          "row": "I",
+          "number": 7,
+          "label": "I7",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I8",
+          "row": "I",
+          "number": 8,
+          "label": "I8",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I9",
+          "row": "I",
+          "number": 9,
+          "label": "I9",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I10",
+          "row": "I",
+          "number": 10,
+          "label": "I10",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I11",
+          "row": "I",
+          "number": 11,
+          "label": "I11",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I12",
+          "row": "I",
+          "number": 12,
+          "label": "I12",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I13",
+          "row": "I",
+          "number": 13,
+          "label": "I13",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "I14",
+          "row": "I",
+          "number": 14,
+          "label": "I14",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J1",
+          "row": "J",
+          "number": 1,
+          "label": "J1",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J2",
+          "row": "J",
+          "number": 2,
+          "label": "J2",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J3",
+          "row": "J",
+          "number": 3,
+          "label": "J3",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J4",
+          "row": "J",
+          "number": 4,
+          "label": "J4",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J5",
+          "row": "J",
+          "number": 5,
+          "label": "J5",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J6",
+          "row": "J",
+          "number": 6,
+          "label": "J6",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J7",
+          "row": "J",
+          "number": 7,
+          "label": "J7",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J8",
+          "row": "J",
+          "number": 8,
+          "label": "J8",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J9",
+          "row": "J",
+          "number": 9,
+          "label": "J9",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J10",
+          "row": "J",
+          "number": 10,
+          "label": "J10",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J11",
+          "row": "J",
+          "number": 11,
+          "label": "J11",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J12",
+          "row": "J",
+          "number": 12,
+          "label": "J12",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J13",
+          "row": "J",
+          "number": 13,
+          "label": "J13",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        },
+        {
+          "seatId": "J14",
+          "row": "J",
+          "number": 14,
+          "label": "J14",
+          "category": "Economy",
+          "price": 599,
+          "status": "available"
+        }
+      ],
+      "createdAt": "2026-08-24T18:40:47.519Z"
+    },
+    {
+      "id": "s-e6",
+      "eventId": "e6",
+      "venueId": "v3",
+      "date": "2026-08-28",
+      "time": "17:00",
+      "seats": [
+        {
+          "seatId": "A1",
+          "row": "A",
+          "number": 1,
+          "label": "A1",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A2",
+          "row": "A",
+          "number": 2,
+          "label": "A2",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A3",
+          "row": "A",
+          "number": 3,
+          "label": "A3",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A4",
+          "row": "A",
+          "number": 4,
+          "label": "A4",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A5",
+          "row": "A",
+          "number": 5,
+          "label": "A5",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A6",
+          "row": "A",
+          "number": 6,
+          "label": "A6",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A7",
+          "row": "A",
+          "number": 7,
+          "label": "A7",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A8",
+          "row": "A",
+          "number": 8,
+          "label": "A8",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A9",
+          "row": "A",
+          "number": 9,
+          "label": "A9",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "A10",
+          "row": "A",
+          "number": 10,
+          "label": "A10",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B1",
+          "row": "B",
+          "number": 1,
+          "label": "B1",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B2",
+          "row": "B",
+          "number": 2,
+          "label": "B2",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B3",
+          "row": "B",
+          "number": 3,
+          "label": "B3",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B4",
+          "row": "B",
+          "number": 4,
+          "label": "B4",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B5",
+          "row": "B",
+          "number": 5,
+          "label": "B5",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B6",
+          "row": "B",
+          "number": 6,
+          "label": "B6",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B7",
+          "row": "B",
+          "number": 7,
+          "label": "B7",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B8",
+          "row": "B",
+          "number": 8,
+          "label": "B8",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B9",
+          "row": "B",
+          "number": 9,
+          "label": "B9",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "B10",
+          "row": "B",
+          "number": 10,
+          "label": "B10",
+          "category": "Premium",
+          "price": 1099,
+          "status": "available"
+        },
+        {
+          "seatId": "C1",
+          "row": "C",
+          "number": 1,
+          "label": "C1",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C2",
+          "row": "C",
+          "number": 2,
+          "label": "C2",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C3",
+          "row": "C",
+          "number": 3,
+          "label": "C3",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C4",
+          "row": "C",
+          "number": 4,
+          "label": "C4",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C5",
+          "row": "C",
+          "number": 5,
+          "label": "C5",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C6",
+          "row": "C",
+          "number": 6,
+          "label": "C6",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C7",
+          "row": "C",
+          "number": 7,
+          "label": "C7",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C8",
+          "row": "C",
+          "number": 8,
+          "label": "C8",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C9",
+          "row": "C",
+          "number": 9,
+          "label": "C9",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "C10",
+          "row": "C",
+          "number": 10,
+          "label": "C10",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D1",
+          "row": "D",
+          "number": 1,
+          "label": "D1",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D2",
+          "row": "D",
+          "number": 2,
+          "label": "D2",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D3",
+          "row": "D",
+          "number": 3,
+          "label": "D3",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D4",
+          "row": "D",
+          "number": 4,
+          "label": "D4",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D5",
+          "row": "D",
+          "number": 5,
+          "label": "D5",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D6",
+          "row": "D",
+          "number": 6,
+          "label": "D6",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D7",
+          "row": "D",
+          "number": 7,
+          "label": "D7",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D8",
+          "row": "D",
+          "number": 8,
+          "label": "D8",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D9",
+          "row": "D",
+          "number": 9,
+          "label": "D9",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "D10",
+          "row": "D",
+          "number": 10,
+          "label": "D10",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E1",
+          "row": "E",
+          "number": 1,
+          "label": "E1",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E2",
+          "row": "E",
+          "number": 2,
+          "label": "E2",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E3",
+          "row": "E",
+          "number": 3,
+          "label": "E3",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E4",
+          "row": "E",
+          "number": 4,
+          "label": "E4",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E5",
+          "row": "E",
+          "number": 5,
+          "label": "E5",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E6",
+          "row": "E",
+          "number": 6,
+          "label": "E6",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E7",
+          "row": "E",
+          "number": 7,
+          "label": "E7",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E8",
+          "row": "E",
+          "number": 8,
+          "label": "E8",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E9",
+          "row": "E",
+          "number": 9,
+          "label": "E9",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "E10",
+          "row": "E",
+          "number": 10,
+          "label": "E10",
+          "category": "Standard",
+          "price": 699,
+          "status": "available"
+        },
+        {
+          "seatId": "F1",
+          "row": "F",
+          "number": 1,
+          "label": "F1",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F2",
+          "row": "F",
+          "number": 2,
+          "label": "F2",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F3",
+          "row": "F",
+          "number": 3,
+          "label": "F3",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F4",
+          "row": "F",
+          "number": 4,
+          "label": "F4",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F5",
+          "row": "F",
+          "number": 5,
+          "label": "F5",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F6",
+          "row": "F",
+          "number": 6,
+          "label": "F6",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F7",
+          "row": "F",
+          "number": 7,
+          "label": "F7",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F8",
+          "row": "F",
+          "number": 8,
+          "label": "F8",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F9",
+          "row": "F",
+          "number": 9,
+          "label": "F9",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        },
+        {
+          "seatId": "F10",
+          "row": "F",
+          "number": 10,
+          "label": "F10",
+          "category": "Economy",
+          "price": 399,
+          "status": "available"
+        }
+      ],
+      "createdAt": "2026-08-24T18:40:47.520Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "63a3e68c-1875-4b6b-8207-5a469d04f6f1",
+      "reference": "CURT-7DB47D732",
+      "userId": "2c9536d5-a74f-4281-afc4-04f61d652eea",
+      "eventId": "e1",
+      "showId": "s-e1",
+      "seatIds": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "B12",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "C12",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "D11",
+        "D12",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12"
+      ],
+      "seatLabels": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "B12",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "C12",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "D11",
+        "D12",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12"
+      ],
+      "category": "Standard",
+      "totalAmount": 44928,
+      "status": "confirmed",
+      "createdAt": "2026-08-24T18:40:47.521Z"
+    }
+  ],
+  "waitlist": [],
+  "emails": []
+}

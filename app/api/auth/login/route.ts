@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { findUserByEmail } from '@/lib/db'
+import { findUserByEmailAsync } from '@/lib/db'
 import { verifyPassword } from '@/lib/auth'
 import { signToken } from '@/lib/auth'
 
@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   const { email, password } = body
   if (!email || typeof email !== 'string' || !password || typeof password !== 'string') return NextResponse.json({ error: 'Missing credentials' }, { status: 400 })
   const cleanEmail = email.trim().toLowerCase()
-  const user = findUserByEmail(cleanEmail)
+  const user = await findUserByEmailAsync(cleanEmail)
   // constant-time-like: always verify even if user not found (dummy hash) to avoid timing oracle
   const dummyHash = '$2a$10$invalidinvalidinvalidinvalidinvalidinvalidinvalidinvalid'
   const hashToCheck = user ? user.passwordHash : dummyHash

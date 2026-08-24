@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB } from '@/lib/db'
+import { getDBAsync } from '@/lib/db'
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const db = getDB()
+  const db = await getDBAsync()
   const show = db.shows.find((s) => s.id === id)
   if (!show) return NextResponse.json({ error: 'Show not found' }, { status: 404 })
   const event = db.events.find((e) => e.id === show.eventId) || null

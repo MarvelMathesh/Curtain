@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
-import { HOLD_TTL_MS, updateDB } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
+import { HOLD_TTL_MS, updateDBAsync } from '@/lib/db'
 import { v4 as uuid } from 'uuid'
 
 // Rate-limit note: In production use Redis/Upstash rate limiting (e.g., 10 hold requests / minute / IP+user).
@@ -9,7 +9,7 @@ import { v4 as uuid } from 'uuid'
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   let body: any
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   let errorMsg: string | null = null
   let errorStatus = 409
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const show = db.shows.find((s) => s.id === id)
     if (!show) {
       errorMsg = 'Show not found'
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   let released = 0
@@ -113,7 +113,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
     }
   }
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const show = db.shows.find((s) => s.id === id)
     if (!show) {
       errorMsg = 'Show not found'

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { updateDB } from '@/lib/db'
+import { updateDBAsync } from '@/lib/db'
 import { hashPassword, signToken } from '@/lib/auth'
 import { v4 as uuid } from 'uuid'
 
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
   let createdUser: any = null
   let error: string | null = null
-  await updateDB(async (db) => {
+  await updateDBAsync(async (db) => {
     if (db.users.find(u => u.email.toLowerCase() === cleanEmail)) { error = 'Email already exists'; return }
     const user = {
       id: uuid(),

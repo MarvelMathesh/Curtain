@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
-import { updateDB, WAITLIST_OFFER_TTL_MS } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
+import { updateDBAsync, WAITLIST_OFFER_TTL_MS } from '@/lib/db'
 import { v4 as uuid } from 'uuid'
 
 function escapeHtml(s: string): string {
@@ -10,14 +10,14 @@ function escapeHtml(s: string): string {
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   let result: any = null
   let errorMsg: string | null = null
   let errorStatus = 400
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const booking = db.bookings.find((b) => b.id === id || b.reference === id)
     if (!booking) {
       errorMsg = 'Booking not found'

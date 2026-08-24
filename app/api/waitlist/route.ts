@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB, updateDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync, updateDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 import { v4 as uuid } from 'uuid'
 
 function escapeHtml(s: string): string {
@@ -9,9 +9,9 @@ function escapeHtml(s: string): string {
 
 export async function GET(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
-  const db = getDB()
+  const db = await getDBAsync()
   let list = db.waitlist
   if (user.role === 'customer') list = list.filter((w) => w.userId === user.id)
   // pagination for waitlist GET
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   let body: any
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
   let error: string | null = null
   let status = 400
 
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const show = db.shows.find((s) => s.id === cleanShowId)
     const event = db.events.find((e) => e.id === cleanEventId)
     if (!show || !event) {
@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
     // include existing waitlist entry in response if dup
     if (error === 'Already in waitlist for this category') {
       // fetch existing for convenience (outside lock, best effort)
-      const db = getDB()
+      const db = await getDBAsync()
       const existing = db.waitlist.find((w) => w.userId === user.id && w.showId === cleanShowId && w.category === cleanCategory && ['waiting', 'offered'].includes(w.status))
       return NextResponse.json({ error, waitlist: existing }, { status })
     }
@@ -133,7 +133,7 @@ export async function POST(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
   const { searchParams } = new URL(req.url)
   const id = searchParams.get('id')
@@ -142,7 +142,7 @@ export async function DELETE(req: NextRequest) {
 
   let error: string | null = null
   let status = 400
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     const entry = db.waitlist.find((w) => w.id === cleanId)
     if (!entry) {
       error = 'Not found'

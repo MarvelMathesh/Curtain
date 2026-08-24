@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 
 function maskEmail(email: string): string {
   const at = email.indexOf('@')
@@ -13,12 +13,12 @@ function maskEmail(email: string): string {
 
 export async function GET(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
   if (user.role !== 'organiser' && user.role !== 'admin') {
     return NextResponse.json({ error: 'Organiser only' }, { status: 403 })
   }
-  const db = getDB()
+  const db = await getDBAsync()
   const events = user.role === 'admin' ? db.events : db.events.filter((e) => e.organiserId === user.id)
   const eventIds = new Set(events.map((e) => e.id))
   const bookings = db.bookings.filter((b) => eventIds.has(b.eventId) && b.status === 'confirmed')

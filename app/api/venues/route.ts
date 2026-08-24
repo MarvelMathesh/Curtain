@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB, updateDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync, updateDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 import { generateVenueSeats } from '@/lib/seed'
 import { v4 as uuid } from 'uuid'
 
@@ -18,13 +18,13 @@ function isValidHttpsUrl(url: string): boolean {
 }
 
 export async function GET() {
-  const db = getDB()
+  const db = await getDBAsync()
   return NextResponse.json({ venues: db.venues })
 }
 
 export async function POST(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user || user.role !== 'admin') return NextResponse.json({ error: 'Admin only' }, { status: 403 })
 
   let body: any
@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
   }
 
   let created: typeof venue | null = null
-  await updateDB((db) => {
+  await updateDBAsync((db) => {
     db.venues.push(venue)
     created = venue
   })

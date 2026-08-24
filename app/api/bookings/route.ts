@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB, updateDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync, updateDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 import { v4 as uuid } from 'uuid'
 import { generateSignedQRDataUrl } from '@/lib/qr'
 import { makeReference } from '@/lib/booking-reference'
@@ -18,7 +18,7 @@ function maskEmail(email: string): string {
 
 export async function GET(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   const { searchParams } = new URL(req.url)
@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
   page = Math.min(1000, Math.max(1, Math.floor(page)))
   limit = Math.min(50, Math.max(1, Math.floor(limit)))
 
-  const db = getDB()
+  const db = await getDBAsync()
   let bookings = db.bookings
   if (user.role !== 'admin' && user.role !== 'organiser') {
     bookings = bookings.filter((b) => b.userId === user.id)
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   let body: any
@@ -108,7 +108,7 @@ export async function POST(req: NextRequest) {
   let errorMsg: string | null = null
   let errorStatus = 409
 
-  await updateDB(async (db) => {
+  await updateDBAsync(async (db) => {
     const show = db.shows.find((s) => s.id === showId)
     if (!show) {
       errorMsg = 'Show not found'

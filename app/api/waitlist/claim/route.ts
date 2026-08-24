@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
-import { updateDB } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
+import { getDBAsync, updateDBAsync } from '@/lib/db'
 import { v4 as uuid } from 'uuid'
 import { generateSignedQRDataUrl } from '@/lib/qr'
 import { makeReference } from '@/lib/booking-reference'
@@ -11,7 +11,7 @@ function escapeHtml(s: string): string {
 
 export async function POST(req: NextRequest) {
   const tokenHeader = getTokenFromRequest(req)
-  const user = getUserFromToken(tokenHeader || undefined)
+  const user = await getUserFromTokenAsync(tokenHeader || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
 
   let body: any = {}
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
   let errorMsg: string | null = null
   let errorStatus = 400
 
-  await updateDB(async (db) => {
+  await updateDBAsync(async (db) => {
     const entry = db.waitlist.find((w) => w.offerToken === offerToken)
     if (!entry) {
       errorMsg = 'Invalid token'
@@ -134,13 +134,13 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const tokenHeader = getTokenFromRequest(req)
-  const user = getUserFromToken(tokenHeader || undefined)
+  const user = await getUserFromTokenAsync(tokenHeader || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
   const { searchParams } = new URL(req.url)
   const token = searchParams.get('token')
   if (!token || typeof token !== 'string' || token.trim().length === 0) return NextResponse.json({ error: 'Missing token' }, { status: 400 })
   const clean = token.trim().slice(0, 200)
-  const db = (await import('@/lib/db')).getDB()
+  const db = await getDBAsync()
   const entry = db.waitlist.find((w) => w.offerToken === clean)
   if (!entry || entry.userId !== user.id) return NextResponse.json({ error: 'Invalid token' }, { status: 404 })
   const event = db.events.find((e) => e.id === entry.eventId) || null

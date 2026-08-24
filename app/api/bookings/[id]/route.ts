@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDB } from '@/lib/db'
-import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
+import { getDBAsync } from '@/lib/db'
+import { getTokenFromRequest, getUserFromTokenAsync } from '@/lib/auth'
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const token = getTokenFromRequest(req)
-  const user = getUserFromToken(token || undefined)
+  const user = await getUserFromTokenAsync(token || undefined)
   if (!user) return NextResponse.json({ error: 'Login required' }, { status: 401 })
-  const db = getDB()
+  const db = await getDBAsync()
   const booking = db.bookings.find((b) => b.id === id || b.reference === id)
   if (!booking) return NextResponse.json({ error: 'Booking not found' }, { status: 404 })
   if (user.role === 'customer' && booking.userId !== user.id) {
