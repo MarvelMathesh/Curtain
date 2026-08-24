@@ -19,7 +19,7 @@ export default function EventDetailPage() {
   useEffect(() => {
     const load = async () => {
       try {
-        const r = await fetch(`/api/events/${params.id}`)
+        const r = await fetch(`/api/events/${encodeURIComponent(params.id)}`)
         const j = await r.json()
         if (!r.ok) throw new Error(j.error || 'Not found')
         setData(j)
@@ -51,9 +51,7 @@ export default function EventDetailPage() {
         <main className="mx-auto max-w-3xl px-4 pt-24 sm:pt-28 pb-8 text-center">
           <p className="font-semibold">Event not found</p>
           <p className="text-sm text-muted-foreground mt-1">{error}</p>
-          <Link href="/events" className="mt-6 inline-block">
-            <Button variant="outline">Back to events</Button>
-          </Link>
+          <Button asChild variant="outline" className="mt-6"><Link href="/events">Back to events</Link></Button>
         </main>
       </div>
     )
@@ -74,7 +72,7 @@ export default function EventDetailPage() {
         <div className="mt-6 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border bg-muted">
-              <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+              <img src={event.image} alt={event.title} className="w-full h-full object-cover" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 60vw" onError={(e)=>{ (e.currentTarget as HTMLImageElement).style.display='none' }} />
               <div className="absolute top-4 left-4 flex gap-2">
                 <Badge className="capitalize bg-white text-foreground border-0 shadow-sm">{event.type}</Badge>
                 {event.featured && <Badge variant="violet" className="shadow-sm">Featured</Badge>}
@@ -101,13 +99,13 @@ export default function EventDetailPage() {
                   </div>
                   <p className="text-sm text-muted-foreground">{event.durationMinutes} minutes · Doors 30m before</p>
                   <div className="flex gap-2 mt-1">
-                    <span className="rounded-full bg-amber-50 text-amber-900 border border-amber-200 px-2.5 py-1 text-xs font-medium">
+                    <span className="rounded-full bg-amber-500/15 text-amber-900 dark:text-amber-200 border border-amber-500/30 px-2.5 py-1 text-xs font-medium">
                       Premium ₹{event.pricing.Premium}
                     </span>
-                    <span className="rounded-full bg-violet-50 text-violet-900 border border-violet-200 px-2.5 py-1 text-xs font-medium">
+                    <span className="rounded-full bg-violet-500/15 text-violet-900 dark:text-violet-200 border border-violet-500/30 px-2.5 py-1 text-xs font-medium">
                       Standard ₹{event.pricing.Standard}
                     </span>
-                    <span className="rounded-full bg-sky-50 text-sky-900 border border-sky-200 px-2.5 py-1 text-xs font-medium">
+                    <span className="rounded-full bg-sky-500/15 text-sky-900 dark:text-sky-200 border border-sky-500/30 px-2.5 py-1 text-xs font-medium">
                       Economy ₹{event.pricing.Economy}
                     </span>
                   </div>
@@ -142,25 +140,21 @@ export default function EventDetailPage() {
                 <Timer className="size-3" /> Hold 10m
               </div>
               {show ? (
-                <Link href={`/shows/${show.id}`} className="block">
-                  <Button className="w-full rounded-lg bg-gradient-to-r from-[oklch(0.646_0.222_41.116)] to-[oklch(0.488_0.243_264.376)] text-white shadow-sm hover:opacity-90">
-                    Open seat map <ArrowRight className="size-4 ml-1" />
-                  </Button>
-                </Link>
+                <Button asChild className="w-full rounded-lg bg-gradient-to-r from-[oklch(0.646_0.222_41.116)] to-[oklch(0.488_0.243_264.376)] text-white shadow-sm hover:opacity-90">
+                  <Link href={`/shows/${encodeURIComponent(show.id)}`}>Open seat map <ArrowRight className="size-4 ml-1" /></Link>
+                </Button>
               ) : (
                 <Button disabled className="w-full">
                   No show scheduled
                 </Button>
               )}
               {event.isSoldOut && (
-                <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm">
-                  <p className="font-semibold text-amber-900">Sold out - join waitlist</p>
-                  <p className="text-xs text-amber-800 mt-1">
+                <div className="rounded-xl border bg-amber-500/15 border-amber-500/30 p-3 text-sm">
+                  <p className="font-semibold text-amber-900 dark:text-amber-200">Sold out - join waitlist</p>
+                  <p className="text-xs text-amber-800 dark:text-amber-300 mt-1">
                     Pick a category. On cancellation, next in queue gets 10-min email.
                   </p>
-                  <Link href={`/waitlist`} className="mt-3 inline-flex text-xs font-semibold text-primary hover:underline">
-                    Go to waitlist →
-                  </Link>
+                  <Button asChild variant="link" size="sm" className="mt-2 px-0 h-auto"><Link href={`/waitlist`}>Go to waitlist →</Link></Button>
                 </div>
               )}
             </Card>

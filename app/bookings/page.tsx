@@ -7,27 +7,49 @@ import { BookingTicket } from '@/components/curtain/booking-ticket'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useToast } from '@/components/ui/toast'
 
 export default function BookingsPage() {
   const [bookings, setBookings] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [msg, setMsg] = useState<string | null>(null)
+  const { add } = useToast()
+  const [isCancelling, setIsCancelling] = useState<string | null>(null)
 
   const load = async () => {
-    const r = await fetch('/api/bookings', { credentials: 'include' })
-    const j = await r.json()
-    if (r.ok) setBookings(j.bookings || [])
-    else setMsg(j.error || 'Failed to load')
-    setLoading(false)
+    try {
+      const r = await fetch('/api/bookings', { credentials: 'include' })
+      const j = await r.json()
+      if (r.ok) setBookings(j.bookings || [])
+      else add({ title: 'Failed to load', description: j.error || 'Failed to load', variant: 'error' })
+    } catch (e: any) {
+      add({ title: 'Failed to load', description: e?.message || 'Failed to load', variant: 'error' })
+    } finally {
+      setLoading(false)
+    }
   }
   useEffect(() => { load() }, [])
 
   const cancel = async (id: string) => {
+    if (isCancelling) return
     if (!confirm('Cancel this booking? Seat will be freed for waitlist.')) return
-    const r = await fetch(`/api/bookings/${id}/cancel`, { method: 'POST', credentials: 'include' })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Cancel failed')
-    else { setMsg('Cancelled - refund in 5-7 days'); load() }
+    setIsCancelling(id)
+    try {
+      const r = await fetch(`/api/bookings/${encodeURIComponent(id)}/cancel`, { method: 'POST', credentials: 'include' })
+      const j = await r.json()
+      if (!r.ok) add({ title: 'Cancel failed', description: j.error || 'Cancel failed', variant: 'error' })
+      else { add({ title: 'Cancelled', description: 'Cancelled - refund in 5-7 days', variant: 'success' }); load() }
+    } finally {
+      setIsCancelling(null)
+    }
+  }
+
+  const copyRef = async (ref: string) => {
+    try {
+      await navigator.clipboard.writeText(ref)
+      add({ title: 'Copied', description: ref, variant: 'default' })
+    } catch {
+      add({ title: 'Copy failed', variant: 'error' })
+    }
   }
 
   return (
@@ -41,12 +63,10 @@ export default function BookingsPage() {
             <h1 className="mt-2 text-3xl font-semibold tracking-tight">Bookings</h1>
             <p className="mt-1 text-sm text-muted-foreground">QR at entry · Cancel anytime · Waitlist auto-fires on cancel.</p>
           </div>
-          <Link href="/events">
-            <Button variant="outline" className="rounded-full">Browse events</Button>
-          </Link>
+          <Button asChild variant="outline" className="rounded-full"><Link href="/events">Browse events</Link></Button>
         </div>
 
-        {msg && <p className="mt-6 rounded-xl bg-muted px-4 py-2 text-sm">{msg}</p>}
+        <div aria-live="polite" aria-atomic="true" className="sr-only">Bookings loaded: {bookings.length}</div>
 
         {loading ? (
           <div className="mt-8 space-y-4">
@@ -56,10 +76,10 @@ export default function BookingsPage() {
           <Card className="mt-8 p-8 text-center gap-3">
             <p className="font-semibold">No bookings yet</p>
             <p className="text-sm text-muted-foreground">Browse events, open the seat map, hold and book. Your QR will appear here.</p>
-            <Link href="/events"><Button className="mt-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90">Browse events</Button></Link>
+            <Button asChild className="mt-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"><Link href="/events">Browse events</Link></Button>
           </Card>
         ) : (
-          <div className="mt-8 grid gap-6">
+          <div className="mt-8 grid gap-6" aria-live="polite">
             {bookings.map((b) => (
               <div key={b.id} className="space-y-3">
                 <BookingTicket booking={b} event={b.event} venue={b.venue} />
@@ -67,8 +87,8 @@ export default function BookingsPage() {
                   <Badge variant={b.status === 'confirmed' ? 'premium' : 'destructive'} className="capitalize">{b.status}</Badge>
                   <span className="text-xs text-muted-foreground">{new Date(b.createdAt).toLocaleString()} · {b.showId}</span>
                   <div className="ml-auto flex gap-2">
-                    <Link href={`/bookings`}><Button variant="ghost" size="sm" onClick={() => navigator.clipboard.writeText(b.reference)}>Copy ref</Button></Link>
-                    {b.status === 'confirmed' && <Button variant="destructive" size="sm" onClick={() => cancel(b.id)}>Cancel booking</Button>}
+                    <Button variant="ghost" size="sm" onClick={() => copyRef(b.reference)}>Copy ref</Button>
+                    {b.status === 'confirmed' && <Button variant="destructive" size="sm" disabled={isCancelling===b.id} aria-busy={isCancelling===b.id} onClick={() => cancel(b.id)}>{isCancelling===b.id ? 'Cancelling…' : 'Cancel booking'}</Button>}
                   </div>
                 </div>
               </div>

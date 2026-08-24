@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import { LandingBackground } from '@/components/landing-background'
 import { TicketHeader } from '@/components/ticketing/header'
 import { EventCard } from '@/components/curtain/event-card'
@@ -12,31 +12,54 @@ export default function EventsPage() {
   const [cities, setCities] = useState<string[]>([])
   const [filters, setFilters] = useState<Filters>({ search: '', type: 'all', city: 'all' })
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const abortRef = useRef<AbortController | null>(null)
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async (current: Filters) => {
+    if (abortRef.current) abortRef.current.abort()
+    const ac = new AbortController()
+    abortRef.current = ac
     setLoading(true)
-    const qs = new URLSearchParams()
-    if (filters.search) qs.set('search', filters.search)
-    if (filters.type) qs.set('type', filters.type)
-    if (filters.city) qs.set('city', filters.city)
-    const r = await fetch(`/api/events?${qs.toString()}`, { cache: 'no-store' })
-    const j = await r.json()
-    setEvents(j.events || [])
-    setCities(j.cities || [])
-    setLoading(false)
-  }
+    setError(null)
+    try {
+      const qs = new URLSearchParams()
+      if (current.search) qs.set('search', current.search)
+      if (current.type) qs.set('type', current.type)
+      if (current.city) qs.set('city', current.city)
+      const r = await fetch(`/api/events?${qs.toString()}`, { cache: 'no-store', signal: ac.signal })
+      const j = await r.json()
+      if (!r.ok) throw new Error(j.error || 'Failed to load events')
+      if (ac.signal.aborted) return
+      setEvents(j.events || [])
+      setCities(j.cities || [])
+    } catch (e: any) {
+      if (e?.name === 'AbortError') return
+      setError(e?.message || 'Failed to load events')
+    } finally {
+      if (!ac.signal.aborted) setLoading(false)
+    }
+  }, [])
 
   useEffect(() => {
-    fetchEvents()
+    fetchEvents(filters)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters.type, filters.city])
 
   // debounce search
   useEffect(() => {
-    const id = setTimeout(() => fetchEvents(), 250)
-    return () => clearTimeout(id)
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    debounceRef.current = setTimeout(() => fetchEvents(filters), 300)
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters.search])
+
+  // abort on unmount
+  useEffect(() => {
+    return () => abortRef.current?.abort()
+  }, [])
 
   const onChange = (k: string, v: string) => setFilters((f) => ({ ...f, [k]: v }))
 
@@ -58,6 +81,13 @@ export default function EventsPage() {
         <div className="mt-8">
           <FilterBar filters={filters} onChange={onChange} cities={cities} />
         </div>
+
+        {error && (
+          <div role="alert" aria-live="assertive" className="mt-6 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm">
+            <p className="font-semibold">Failed to load events</p>
+            <p className="text-muted-foreground mt-1">{error}</p>
+          </div>
+        )}
 
         {loading ? (
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

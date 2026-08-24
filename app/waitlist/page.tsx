@@ -7,33 +7,53 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { HoldTimer } from '@/components/curtain/hold-timer'
+import { useToast } from '@/components/ui/toast'
 
 export default function WaitlistPage() {
   const [list, setList] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [msg, setMsg] = useState<string | null>(null)
+  const { add } = useToast()
+  const [isCancelling, setIsCancelling] = useState<string | null>(null)
+  const [isClaiming, setIsClaiming] = useState<string | null>(null)
 
   const load = async () => {
-    const r = await fetch('/api/waitlist', { credentials: 'include' })
-    const j = await r.json()
-    if (r.ok) setList(j.waitlist || [])
-    else setMsg(j.error || 'Failed to load')
-    setLoading(false)
+    try {
+      const r = await fetch('/api/waitlist', { credentials: 'include' })
+      const j = await r.json()
+      if (r.ok) setList(j.waitlist || [])
+      else add({ title: 'Failed to load', description: j.error || 'Failed to load', variant: 'error' })
+    } catch (e: any) {
+      add({ title: 'Failed to load', description: e?.message || 'Failed', variant: 'error' })
+    } finally {
+      setLoading(false)
+    }
   }
   useEffect(() => { load() }, [])
 
   const cancel = async (id: string) => {
-    const r = await fetch(`/api/waitlist?id=${id}`, { method: 'DELETE', credentials: 'include' })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Failed')
-    else { setMsg('Removed from waitlist'); load() }
+    if (isCancelling) return
+    setIsCancelling(id)
+    try {
+      const r = await fetch(`/api/waitlist?id=${encodeURIComponent(id)}`, { method: 'DELETE', credentials: 'include' })
+      const j = await r.json()
+      if (!r.ok) add({ title: 'Failed', description: j.error || 'Failed', variant: 'error' })
+      else { add({ title: 'Removed', description: 'Removed from waitlist', variant: 'success' }); load() }
+    } finally {
+      setIsCancelling(null)
+    }
   }
 
   const claim = async (token: string) => {
-    const r = await fetch('/api/waitlist/claim', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ token }) })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Claim failed')
-    else { setMsg(`Claimed ✓ ${j.booking.reference}`); load() }
+    if (isClaiming) return
+    setIsClaiming(token)
+    try {
+      const r = await fetch('/api/waitlist/claim', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ token }) })
+      const j = await r.json()
+      if (!r.ok) add({ title: 'Claim failed', description: j.error || 'Claim failed', variant: 'error' })
+      else { add({ title: 'Claimed', description: `Claimed ✓ ${j.booking.reference}`, variant: 'success' }); load() }
+    } finally {
+      setIsClaiming(null)
+    }
   }
 
   return (
@@ -47,7 +67,7 @@ export default function WaitlistPage() {
           <p className="mt-1 text-sm text-muted-foreground">When a seat frees, next in queue gets a 10-minute hold via email. Claim from here too.</p>
         </div>
 
-        {msg && <p className="mt-6 rounded-xl bg-muted px-4 py-2 text-sm">{msg}</p>}
+        <div aria-live="polite" aria-atomic="true" className="sr-only">Waitlist entries: {list.length}</div>
 
         {loading ? (
           <div className="mt-8 h-48 rounded-2xl bg-muted animate-pulse" />
@@ -55,7 +75,7 @@ export default function WaitlistPage() {
           <Card className="mt-8 p-8 text-center gap-3">
             <p className="font-semibold">Not waitlisted yet</p>
             <p className="text-sm text-muted-foreground">Sold-out categories show a waitlist button on the seat map. You&apos;ll appear here.</p>
-            <Link href="/events"><Button className="mt-2 rounded-lg bg-primary text-primary-foreground">Browse events</Button></Link>
+            <Button asChild className="mt-2 rounded-lg bg-primary text-primary-foreground"><Link href="/events">Browse events</Link></Button>
           </Card>
         ) : (
           <div className="mt-8 grid gap-4">
@@ -71,19 +91,19 @@ export default function WaitlistPage() {
                 </div>
 
                 {w.status === 'offered' && w.expiresAt && (
-                  <div className="flex flex-wrap items-center gap-3 rounded-xl border bg-amber-50 border-amber-200 p-3">
+                  <div className="flex flex-wrap items-center gap-3 rounded-xl border bg-amber-500/15 border-amber-500/30 p-3">
                     <HoldTimer expiresAt={w.expiresAt} />
-                    <span className="text-sm font-medium text-amber-900">Reserved {w.seatIdOffered} for you</span>
+                    <span className="text-sm font-medium text-amber-900 dark:text-amber-200">Reserved {w.seatIdOffered} for you</span>
                     <div className="ml-auto flex gap-2">
-                      <Link href={`/waitlist/claim?token=${w.offerToken}`}><Button size="sm" className="bg-primary text-primary-foreground">Claim page</Button></Link>
-                      <Button size="sm" onClick={() => claim(w.offerToken)} className="bg-gradient-to-r from-[oklch(0.646_0.222_41.116)] to-[oklch(0.488_0.243_264.376)] text-white">Claim now</Button>
+                      <Button asChild size="sm" className="bg-primary text-primary-foreground"><Link href={`/waitlist/claim?token=${encodeURIComponent(w.offerToken)}`}>Claim page</Link></Button>
+                      <Button size="sm" disabled={isClaiming===w.offerToken} aria-busy={isClaiming===w.offerToken} onClick={() => claim(w.offerToken)} className="bg-gradient-to-r from-[oklch(0.646_0.222_41.116)] to-[oklch(0.488_0.243_264.376)] text-white">{isClaiming===w.offerToken ? 'Claiming…' : 'Claim now'}</Button>
                     </div>
                   </div>
                 )}
 
                 <div className="flex gap-2">
-                  {(w.status === 'waiting' || w.status === 'offered') && <Button variant="outline" size="sm" onClick={() => cancel(w.id)}>Leave waitlist</Button>}
-                  {w.show?.id && <Link href={`/shows/${w.showId}`}><Button variant="ghost" size="sm">Open seat map →</Button></Link>}
+                  {(w.status === 'waiting' || w.status === 'offered') && <Button variant="outline" size="sm" disabled={isCancelling===w.id} aria-busy={isCancelling===w.id} onClick={() => cancel(w.id)}>{isCancelling===w.id ? 'Leaving…' : 'Leave waitlist'}</Button>}
+                  {w.show?.id && <Button asChild variant="ghost" size="sm"><Link href={`/shows/${encodeURIComponent(w.showId)}`}>Open seat map →</Link></Button>}
                 </div>
               </Card>
             ))}

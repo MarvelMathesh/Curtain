@@ -1,6 +1,5 @@
-'use client'
-import { HeroLanding } from '@/components/ui/hero-1'
 import { LandingBackground } from '@/components/landing-background'
+import { LandingNav } from '@/components/ticketing/landing-nav'
 import Link from 'next/link'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -8,16 +7,9 @@ import { Button } from '@/components/ui/button'
 import { ShineBorder } from '@/components/ui/shine-border'
 import { NumberTicker } from '@/components/ui/number-ticker'
 import { Ticket, Zap, Users, ShieldCheck, Clock3, Star, ArrowRight, MapPin } from 'lucide-react'
-import { useAuth } from '@/lib/auth-context'
 
 // Ticketing homepage - built *with* Curtain design, not *as* Curtain
 // Reuses Curtain tokens, typography, spacing, card hover, gradients, and components
-
-const logo = {
-  src: '/logo.svg',
-  alt: 'Curtain',
-  companyName: 'Curtain',
-}
 
 function TicketValue() {
   return (
@@ -125,7 +117,7 @@ function Roles() {
               <h3 className="mt-2 text-2xl font-semibold tracking-tight">Built for everyone in the venue</h3>
               <p className="mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">Separate auth and dashboards, one shared source of truth for seats. Admin, organiser, customer - same design, different capabilities.</p>
             </div>
-            <Link href="/events"><Button className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90">Browse events <ArrowRight className="size-4 ml-1" /></Button></Link>
+            <Button asChild className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"><Link href="/events">Browse events <ArrowRight className="size-4 ml-1" /></Link></Button>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {[
@@ -175,8 +167,8 @@ function TicketPreview() {
             <div className="text-sm font-semibold flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Concurrency guarantee</div>
             <p className="text-sm text-muted-foreground leading-relaxed">Two customers can’t hold or book the same seat. Atomic holds with TTL and real-time release. Polling every 4s keeps the map honest.</p>
             <div className="flex gap-2 text-xs">
-              <span className="rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-1">No oversell</span>
-              <span className="rounded-full bg-amber-50 text-amber-900 border border-amber-200 px-2.5 py-1">Auto-release 10m</span>
+              <span className="rounded-full bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 px-2.5 py-1">No oversell</span>
+              <span className="rounded-full bg-amber-500/15 text-amber-900 dark:text-amber-200 border border-amber-500/30 px-2.5 py-1">Auto-release 10m</span>
             </div>
             <div className="mt-2 flex items-center gap-1 text-xs text-muted-foreground"><Star className="size-3 text-amber-500 fill-amber-500" /> 3 venues · 6 shows · Mumbai / Bangalore / Delhi</div>
           </Card>
@@ -187,31 +179,10 @@ function TicketPreview() {
 }
 
 export default function Home() {
-  const { user } = useAuth()
-  const navigation = user
-    ? [
-        { name: 'Events', href: '/events' },
-        { name: 'My Tickets', href: '/bookings' },
-        { name: 'Waitlist', href: '/waitlist' },
-        { name: 'Organiser', href: '/organiser' },
-      ]
-    : []
   return (
     <main className="relative">
       <LandingBackground />
-      <HeroLanding
-        logo={logo}
-        navigation={navigation}
-        loginText={user ? "" : "Sign in"}
-        loginHref={user ? "" : "/auth/login"}
-        badge="Curtain - Ticketing demo"
-        title="Every seat, every show, instantly."
-        description="Visual seat map, 10-minute holds with auto-release, sold-out waitlist that auto-assigns on cancellation, and QR tickets via email. No double-booking. No wasted seats. Built with the Curtain design system."
-        callToActions={[
-          { text: 'Browse events', href: '/events', variant: 'primary' as const },
-          { text: 'How it works', href: '#how-it-works', variant: 'secondary' as const },
-        ]}
-      />
+      <LandingNav />
       <TicketValue />
       <TicketStats />
       <div id="how-it-works"><HowTicketingWorks /></div>
@@ -223,7 +194,7 @@ export default function Home() {
           <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl">Ready to take a seat?</h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground sm:text-base">Try the flow: hold seats, watch the timer, book, get a QR, cancel and watch the waitlist fire. All in 2 minutes.</p>
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Link href="/events"><Button className="rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90">Browse events</Button></Link>
+            <Button asChild className="rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"><Link href="/events">Browse events</Link></Button>
             <Link href="/auth/register" className="text-sm font-semibold hover:text-muted-foreground">Create account →</Link>
           </div>
         </div>

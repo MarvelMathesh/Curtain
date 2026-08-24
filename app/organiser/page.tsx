@@ -9,20 +9,27 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
+import { useToast } from '@/components/ui/toast'
 
 export default function OrganiserPage() {
   const [stats, setStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
-  const [msg, setMsg] = useState<string | null>(null)
+  const { add } = useToast()
+  const [isCreating, setIsCreating] = useState(false)
   const [form, setForm] = useState({ title: '', type: 'movie', description: '', venueId: '', date: '', time: '', durationMinutes: '120', Premium: '899', Standard: '549', Economy: '299', image: '' })
   const [venues, setVenues] = useState<any[]>([])
 
   const load = async () => {
-    const r = await fetch('/api/organiser/stats', { credentials: 'include' })
-    const j = await r.json()
-    if (r.ok) setStats(j)
-    else setMsg(j.error || 'Failed to load stats')
-    setLoading(false)
+    try {
+      const r = await fetch('/api/organiser/stats', { credentials: 'include' })
+      const j = await r.json()
+      if (r.ok) setStats(j)
+      else add({ title: 'Failed to load stats', description: j.error || 'Failed to load stats', variant: 'error' })
+    } catch (e: any) {
+      add({ title: 'Failed to load stats', description: e?.message || 'Error', variant: 'error' })
+    } finally {
+      setLoading(false)
+    }
   }
   const loadVenues = async () => {
     const r = await fetch('/api/venues')
@@ -34,22 +41,27 @@ export default function OrganiserPage() {
 
   const createEvent = async (e: React.FormEvent) => {
     e.preventDefault()
-    setMsg(null)
-    const body = {
-      title: form.title,
-      type: form.type,
-      description: form.description,
-      venueId: form.venueId,
-      date: form.date,
-      time: form.time,
-      durationMinutes: Number(form.durationMinutes),
-      pricing: { Premium: Number(form.Premium), Standard: Number(form.Standard), Economy: Number(form.Economy) },
-      image: form.image || undefined,
+    if (isCreating) return
+    setIsCreating(true)
+    try {
+      const body = {
+        title: form.title,
+        type: form.type,
+        description: form.description,
+        venueId: form.venueId,
+        date: form.date,
+        time: form.time,
+        durationMinutes: Number(form.durationMinutes),
+        pricing: { Premium: Number(form.Premium), Standard: Number(form.Standard), Economy: Number(form.Economy) },
+        image: form.image || undefined,
+      }
+      const r = await fetch('/api/events', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify(body) })
+      const j = await r.json()
+      if (!r.ok) add({ title: 'Create failed', description: j.error || 'Create failed', variant: 'error' })
+      else { add({ title: 'Created', description: `Created ${j.event.title} - ${j.show.id}`, variant: 'success' }); load() }
+    } finally {
+      setIsCreating(false)
     }
-    const r = await fetch('/api/events', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify(body) })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Create failed')
-    else { setMsg(`Created ${j.event.title} - ${j.show.id}`); load() }
   }
 
   return (
@@ -63,7 +75,7 @@ export default function OrganiserPage() {
           <p className="mt-1 text-sm text-muted-foreground">Create movie / concert listings, set per-category pricing, track occupancy.</p>
         </div>
 
-        {msg && <p className="mt-6 rounded-xl bg-muted px-4 py-2 text-sm">{msg}</p>}
+        <div aria-live="polite" aria-atomic="true" className="sr-only">Organiser stats loaded</div>
 
         {loading ? <div className="mt-8 h-48 rounded-2xl bg-muted animate-pulse" /> : stats && (
           <>
@@ -86,8 +98,8 @@ export default function OrganiserPage() {
               <Card className="p-5 gap-2">
                 <div className="text-xs text-muted-foreground">Quick actions</div>
                 <div className="flex gap-2">
-                  <Link href="/events"><Button size="sm" variant="outline" className="rounded-full">Browse</Button></Link>
-                  <Link href="/admin"><Button size="sm" variant="outline" className="rounded-full">Admin</Button></Link>
+                  <Button asChild size="sm" variant="outline" className="rounded-full"><Link href="/events">Browse</Link></Button>
+                  <Button asChild size="sm" variant="outline" className="rounded-full"><Link href="/admin">Admin</Link></Button>
                 </div>
               </Card>
             </div>
@@ -109,14 +121,14 @@ export default function OrganiserPage() {
                       <div className="h-1.5 rounded-full bg-muted overflow-hidden flex">
                         <div className="h-full bg-primary" style={{ width: `${row.occupancy}%` }} />
                       </div>
-                      <Link href={`/events/${row.event.id}`} className="text-xs font-semibold text-primary hover:underline">View →</Link>
+                      <Button asChild variant="link" size="sm" className="px-0 h-auto text-primary"><Link href={`/events/${encodeURIComponent(row.event.id)}`}>View →</Link></Button>
                     </Card>
                   ))}
                 </div>
 
                 <div className="mt-8">
                   <h3 className="font-semibold text-sm">Recent bookings</h3>
-                  <div className="mt-3 space-y-2">
+                  <div className="mt-3 space-y-2" aria-live="polite">
                     {stats.recentBookings.length === 0 ? <p className="text-sm text-muted-foreground">No bookings yet.</p> : stats.recentBookings.map((b: any) => (
                       <div key={b.id} className="flex items-center justify-between rounded-xl border bg-card px-3 py-2 text-sm">
                         <span className="font-mono text-xs">{b.reference}</span>
@@ -139,39 +151,39 @@ export default function OrganiserPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <Label>Type</Label>
+                      <Label htmlFor="organiser-type">Type</Label>
                       <Select value={form.type} onValueChange={(v) => setForm({ ...form, type: v })}>
-                        <SelectTrigger><SelectValue /></SelectTrigger>
+                        <SelectTrigger id="organiser-type" aria-label="Event type"><SelectValue /></SelectTrigger>
                         <SelectContent><SelectItem value="movie">Movie</SelectItem><SelectItem value="concert">Concert</SelectItem></SelectContent>
                       </Select>
                     </div>
                     <div>
-                      <Label>Venue</Label>
+                      <Label htmlFor="organiser-venue">Venue</Label>
                       <Select value={form.venueId} onValueChange={(v) => setForm({ ...form, venueId: v })}>
-                        <SelectTrigger><SelectValue placeholder="Select venue" /></SelectTrigger>
+                        <SelectTrigger id="organiser-venue" aria-label="Venue"><SelectValue placeholder="Select venue" /></SelectTrigger>
                         <SelectContent>{venues.map((v) => <SelectItem key={v.id} value={v.id}>{v.name} · {v.city}</SelectItem>)}</SelectContent>
                       </Select>
                     </div>
                   </div>
                   <div>
-                    <Label>Description</Label>
-                    <Input value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Short pitch…" />
+                    <Label htmlFor="organiser-desc">Description</Label>
+                    <Input id="organiser-desc" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Short pitch…" />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    <div><Label>Date</Label><Input type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} required /></div>
-                    <div><Label>Time</Label><Input type="time" value={form.time} onChange={(e) => setForm({ ...form, time: e.target.value })} required /></div>
+                    <div><Label htmlFor="organiser-date">Date</Label><Input id="organiser-date" type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} required /></div>
+                    <div><Label htmlFor="organiser-time">Time</Label><Input id="organiser-time" type="time" value={form.time} onChange={(e) => setForm({ ...form, time: e.target.value })} required /></div>
                   </div>
                   <div className="grid grid-cols-3 gap-3">
-                    <div><Label>Duration (min)</Label><Input value={form.durationMinutes} onChange={(e) => setForm({ ...form, durationMinutes: e.target.value })} /></div>
-                    <div><Label>Image URL</Label><Input value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} placeholder="https://…" /></div>
+                    <div><Label htmlFor="organiser-duration">Duration (min)</Label><Input id="organiser-duration" value={form.durationMinutes} onChange={(e) => setForm({ ...form, durationMinutes: e.target.value })} /></div>
+                    <div><Label htmlFor="organiser-image">Image URL</Label><Input id="organiser-image" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} placeholder="https://…" /></div>
                     <div className="hidden sm:block" />
                   </div>
                   <div className="grid grid-cols-3 gap-3">
-                    <div><Label>Premium ₹</Label><Input value={form.Premium} onChange={(e) => setForm({ ...form, Premium: e.target.value })} /></div>
-                    <div><Label>Standard ₹</Label><Input value={form.Standard} onChange={(e) => setForm({ ...form, Standard: e.target.value })} /></div>
-                    <div><Label>Economy ₹</Label><Input value={form.Economy} onChange={(e) => setForm({ ...form, Economy: e.target.value })} /></div>
+                    <div><Label htmlFor="organiser-premium">Premium ₹</Label><Input id="organiser-premium" value={form.Premium} onChange={(e) => setForm({ ...form, Premium: e.target.value })} /></div>
+                    <div><Label htmlFor="organiser-standard">Standard ₹</Label><Input id="organiser-standard" value={form.Standard} onChange={(e) => setForm({ ...form, Standard: e.target.value })} /></div>
+                    <div><Label htmlFor="organiser-economy">Economy ₹</Label><Input id="organiser-economy" value={form.Economy} onChange={(e) => setForm({ ...form, Economy: e.target.value })} /></div>
                   </div>
-                  <Button type="submit" className="w-full rounded-lg bg-primary text-primary-foreground hover:bg-primary/90">Create event + show</Button>
+                  <Button type="submit" disabled={isCreating} aria-busy={isCreating} className="w-full rounded-lg bg-primary text-primary-foreground hover:bg-primary/90">{isCreating ? 'Creating…' : 'Create event + show'}</Button>
                 </form>
               </Card>
             </div>

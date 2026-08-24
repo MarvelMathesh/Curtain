@@ -29,7 +29,7 @@ export function BookingTicket({ booking, event, venue }: { booking:any; event:an
           <>
             <Separator className="my-4"/>
             <div className="flex flex-col items-center gap-3">
-              <img src={booking.qrDataUrl} alt="QR" className="size-44 rounded-xl border bg-white p-2 shadow-sm"/>
+              <img src={booking.qrDataUrl} alt={`QR code for booking ${booking.reference}`} className="size-44 rounded-xl border bg-white p-2 shadow-sm" loading="lazy" decoding="async" onError={(e)=>{ (e.currentTarget as HTMLImageElement).style.display='none' }} />
               <div className="text-xs text-muted-foreground text-center max-w-[280px]">QR encodes your booking reference. Show at entry - staff will scan. Screenshot is valid.</div>
               <div className="font-mono text-xs tracking-widest bg-muted px-3 py-1 rounded-full">WA:{booking.reference}</div>
             </div>

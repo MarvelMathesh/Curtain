@@ -9,10 +9,10 @@ export function EventCard({ event }: { event: any }) {
   const avail = event.availableCount
   const isSoldOut = event.isSoldOut
   return (
-    <Link href={`/events/${event.id}`} className="group block">
+    <Link href={`/events/${encodeURIComponent(event.id)}`} className="group block">
       <Card className="overflow-hidden p-0 gap-0 border hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-          <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
+          <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onError={(e)=>{ (e.currentTarget as HTMLImageElement).style.display='none' }} />
           <div className="absolute top-3 left-3 flex gap-2">
             <Badge variant="outline" className="capitalize bg-white text-zinc-900 border-zinc-200 shadow-sm hover:bg-white">{event.type}</Badge>
             {event.featured && <Badge variant="outline" className="bg-white text-zinc-900 border-zinc-200 shadow-sm">Featured</Badge>}
@@ -23,7 +23,7 @@ export function EventCard({ event }: { event: any }) {
           <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
             <span className="flex items-center gap-1.5 bg-black/35 backdrop-blur px-2.5 py-1 rounded-full border border-white/15"><MapPin className="size-3"/>{event.venue?.name} · {event.venue?.city}</span>
-            <span className="hidden sm:flex items-center gap-1 bg-white text-foreground px-2.5 py-1 rounded-full font-semibold"><Clock className="size-3"/> {event.date} · {event.time}</span>
+            <span className="hidden sm:flex items-center gap-1 bg-white text-zinc-900 border border-zinc-200 px-2.5 py-1 rounded-full font-semibold shadow-sm"><Clock className="size-3 text-zinc-700"/> {event.date} · {event.time}</span>
           </div>
         </div>
         <div className="p-4">

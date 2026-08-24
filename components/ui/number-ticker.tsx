@@ -42,28 +42,28 @@ export function NumberTicker({
     return () => {
       if (timer !== null) {
         clearTimeout(timer)
+        timer = null
       }
     }
   }, [motionValue, isInView, delay, value, direction, startValue])
 
-  useEffect(
-    () =>
-      springValue.on('change', (latest) => {
-        if (ref.current) {
-          ref.current.textContent = Intl.NumberFormat('en-US', {
-            minimumFractionDigits: decimalPlaces,
-            maximumFractionDigits: decimalPlaces,
-          }).format(Number(latest.toFixed(decimalPlaces)))
-        }
-      }),
-    [springValue, decimalPlaces]
-  )
+  useEffect(() => {
+    const unsubscribe = springValue.on('change', (latest) => {
+      if (ref.current) {
+        ref.current.textContent = Intl.NumberFormat('en-US', {
+          minimumFractionDigits: decimalPlaces,
+          maximumFractionDigits: decimalPlaces,
+        }).format(Number(latest.toFixed(decimalPlaces)))
+      }
+    })
+    return () => unsubscribe()
+  }, [springValue, decimalPlaces])
 
   return (
     <span
       ref={ref}
       className={cn(
-        'inline-block tracking-wider text-black tabular-nums dark:text-white',
+        'inline-block tracking-wider text-foreground tabular-nums',
         className
       )}
       {...props}

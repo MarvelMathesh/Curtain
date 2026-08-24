@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db'
 
-export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const db = getDB()
   const show = db.shows.find((s) => s.id === id)
@@ -14,5 +14,10 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ id:
     held: show.seats.filter((s) => s.status === 'held').length,
     booked: show.seats.filter((s) => s.status === 'booked').length,
   }
-  return NextResponse.json({ show, event, venue, stats })
+  // strip PII: never expose heldBy/bookedBy to client; frontend only needs status
+  const sanitizedShow = {
+    ...show,
+    seats: show.seats.map(({ heldBy, bookedBy, ...rest }) => rest),
+  }
+  return NextResponse.json({ show: sanitizedShow, event, venue, stats })
 }

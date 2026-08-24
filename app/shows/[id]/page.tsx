@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { LandingBackground } from '@/components/landing-background'
@@ -10,108 +10,245 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { useAuth } from '@/lib/auth-context'
+import { useToast } from '@/components/ui/toast'
 import { Clock, Ticket, Crown, Users, Star, MapPin } from 'lucide-react'
 
 export default function ShowPage() {
   const params = useParams() as { id: string }
   const { user } = useAuth()
+  const { add } = useToast()
   const [data, setData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [selected, setSelected] = useState<string[]>([])
   const [hold, setHold] = useState<{ holdId: string; expiresAt: string } | null>(null)
   const [booking, setBooking] = useState<any>(null)
   const [msg, setMsg] = useState<string | null>(null)
   const [waitlistCategory, setWaitlistCategory] = useState<string>('Premium')
+  const [isHolding, setIsHolding] = useState(false)
+  const [isBooking, setIsBooking] = useState(false)
+  const [isReleasing, setIsReleasing] = useState(false)
+  const [isWaitlisting, setIsWaitlisting] = useState(false)
+
+  const abortRef = useRef<AbortController | null>(null)
+  const prevDataRef = useRef<string>('')
 
   const fetchShow = useCallback(async () => {
-    const r = await fetch(`/api/shows/${params.id}`, { cache: 'no-store' })
-    const j = await r.json()
-    setData(j)
-    setLoading(false)
+    if (abortRef.current) abortRef.current.abort()
+    const ac = new AbortController()
+    abortRef.current = ac
+    try {
+      const r = await fetch(`/api/shows/${encodeURIComponent(params.id)}`, { cache: 'no-store', signal: ac.signal })
+      const j = await r.json()
+      if (!r.ok) throw new Error(j.error || 'Failed to load show')
+      const serialized = JSON.stringify(j)
+      if (serialized !== prevDataRef.current) {
+        prevDataRef.current = serialized
+        setData(j)
+      } else {
+        // dedup: still update if first load
+        if (!prevDataRef.current) setData(j)
+      }
+      setError(null)
+    } catch (e: any) {
+      if (e?.name === 'AbortError') return
+      setError(e?.message || 'Failed to load show')
+    } finally {
+      setLoading(false)
+    }
   }, [params.id])
 
   useEffect(() => {
     fetchShow()
-    const id = setInterval(fetchShow, 4000)
-    return () => clearInterval(id)
+    const id = setInterval(() => {
+      if (typeof document !== 'undefined' && document.hidden) return
+      fetchShow()
+    }, 4000)
+    const onVis = () => {
+      if (typeof document !== 'undefined' && !document.hidden) fetchShow()
+    }
+    document.addEventListener('visibilitychange', onVis)
+    return () => {
+      clearInterval(id)
+      document.removeEventListener('visibilitychange', onVis)
+      abortRef.current?.abort()
+    }
   }, [fetchShow])
 
   const onToggle = (id: string) => {
     setSelected((prev) => {
       if (prev.includes(id)) return prev.filter((x) => x !== id)
-      if (prev.length >= 6) return prev
+      if (prev.length >= 6) {
+        add({ title: 'Max 6 seats', description: 'You can select up to 6 seats.', variant: 'error' })
+        return prev
+      }
       return [...prev, id]
     })
   }
 
   const handleHold = async () => {
     setMsg(null)
-    if (!user) { setMsg('Sign in to hold seats'); return }
-    const r = await fetch(`/api/shows/${params.id}/hold`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ seatIds: selected }),
-    })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Hold failed')
-    else {
-      setHold({ holdId: j.holdId, expiresAt: j.expiresAt })
-      setMsg(`Held for 10 minutes - ${selected.length} seats`)
+    if (!user) {
+      add({ title: 'Sign in required', description: 'Sign in to hold seats', variant: 'error' })
+      setMsg('Sign in to hold seats')
+      return
     }
-    fetchShow()
+    if (selected.length === 0) {
+      add({ title: 'Select seats', description: 'Select at least one seat', variant: 'error' })
+      return
+    }
+    if (isHolding) return
+    setIsHolding(true)
+    try {
+      const seatIds = [...new Set(selected)]
+      const r = await fetch(`/api/shows/${encodeURIComponent(params.id)}/hold`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ seatIds }),
+      })
+      const j = await r.json()
+      if (!r.ok) {
+        const m = j.error || 'Hold failed'
+        setMsg(m)
+        add({ title: 'Hold failed', description: m, variant: 'error' })
+      } else {
+        setHold({ holdId: j.holdId, expiresAt: j.expiresAt })
+        const m = `Held for 10 minutes - ${seatIds.length} seats`
+        setMsg(m)
+        add({ title: 'Seats held', description: m, variant: 'success' })
+      }
+      fetchShow()
+    } catch (e: any) {
+      const m = e?.message || 'Hold failed'
+      setMsg(m)
+      add({ title: 'Hold failed', description: m, variant: 'error' })
+    } finally {
+      setIsHolding(false)
+    }
   }
 
   const handleRelease = async () => {
     if (!hold) return
-    await fetch(`/api/shows/${params.id}/hold`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ holdId: hold.holdId }),
-    })
-    setHold(null)
-    setSelected([])
-    setMsg('Hold released')
-    fetchShow()
+    if (isReleasing) return
+    setIsReleasing(true)
+    try {
+      await fetch(`/api/shows/${encodeURIComponent(params.id)}/hold`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ holdId: hold.holdId }),
+      })
+      setHold(null)
+      setSelected([])
+      setMsg('Hold released')
+      add({ title: 'Hold released', variant: 'default' })
+      fetchShow()
+    } finally {
+      setIsReleasing(false)
+    }
   }
 
   const handleBook = async () => {
     setMsg(null)
-    if (!user) { setMsg('Sign in to book'); return }
-    if (!hold) { setMsg('Hold seats first'); return }
-    const r = await fetch('/api/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ showId: params.id, seatIds: selected, holdId: hold.holdId }),
-    })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Booking failed')
-    else {
-      setBooking(j.booking)
-      setMsg(`Booked ✓ ${j.booking.reference}`)
-      setHold(null)
+    if (!user) {
+      add({ title: 'Sign in required', description: 'Sign in to book', variant: 'error' })
+      setMsg('Sign in to book')
+      return
     }
-    fetchShow()
+    if (!hold) {
+      add({ title: 'Hold required', description: 'Hold seats first', variant: 'error' })
+      setMsg('Hold seats first')
+      return
+    }
+    if (isBooking) return
+    setIsBooking(true)
+    try {
+      const seatIds = [...new Set(selected)]
+      const r = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ showId: params.id, seatIds, holdId: hold.holdId }),
+      })
+      const j = await r.json()
+      if (!r.ok) {
+        const m = j.error || 'Booking failed'
+        setMsg(m)
+        add({ title: 'Booking failed', description: m, variant: 'error' })
+      } else {
+        setBooking(j.booking)
+        const m = `Booked ✓ ${j.booking.reference}`
+        setMsg(m)
+        add({ title: 'Booked', description: m, variant: 'success' })
+        setHold(null)
+      }
+      fetchShow()
+    } catch (e: any) {
+      const m = e?.message || 'Booking failed'
+      setMsg(m)
+      add({ title: 'Booking failed', description: m, variant: 'error' })
+    } finally {
+      setIsBooking(false)
+    }
   }
 
   const handleWaitlist = async () => {
-    if (!user) { setMsg('Sign in to join waitlist'); return }
-    const eventId = data?.event?.id
-    if (!eventId) return
-    const r = await fetch('/api/waitlist', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ eventId, showId: params.id, category: waitlistCategory }),
-    })
-    const j = await r.json()
-    if (!r.ok) setMsg(j.error || 'Waitlist failed')
-    else setMsg(`Waitlisted for ${waitlistCategory} - position ${j.waitlist.position}`)
+    if (!user) {
+      add({ title: 'Sign in required', description: 'Sign in to join waitlist', variant: 'error' })
+      setMsg('Sign in to join waitlist')
+      return
+    }
+    if (isWaitlisting) return
+    setIsWaitlisting(true)
+    try {
+      const eventId = data?.event?.id
+      if (!eventId) return
+      const r = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ eventId, showId: params.id, category: waitlistCategory }),
+      })
+      const j = await r.json()
+      if (!r.ok) {
+        const m = j.error || 'Waitlist failed'
+        setMsg(m)
+        add({ title: 'Waitlist failed', description: m, variant: 'error' })
+      } else {
+        const m = `Waitlisted for ${waitlistCategory} - position ${j.waitlist.position}`
+        setMsg(m)
+        add({ title: 'Waitlisted', description: m, variant: 'success' })
+      }
+    } finally {
+      setIsWaitlisting(false)
+    }
   }
 
+  const handleHoldExpired = useCallback(() => {
+    setHold(null)
+    const m = 'Hold expired - seats released'
+    setMsg(m)
+    add({ title: 'Hold expired', description: m, variant: 'error' })
+    fetchShow()
+  }, [add, fetchShow])
+
   if (loading || !data) {
+    if (error) {
+      return (
+        <div className="relative min-h-screen">
+          <LandingBackground />
+          <TicketHeader />
+          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-8">
+            <div role="alert" aria-live="assertive" className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm">
+              <p className="font-semibold">Failed to load show</p>
+              <p className="text-muted-foreground mt-1">{error}</p>
+              <Button onClick={() => { setLoading(true); setError(null); fetchShow() }} className="mt-3" variant="outline" size="sm">Retry</Button>
+            </div>
+          </main>
+        </div>
+      )
+    }
     return (
       <div className="relative min-h-screen">
         <LandingBackground />
@@ -134,9 +271,15 @@ export default function ShowPage() {
       <LandingBackground />
       <TicketHeader />
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-8">
-        <Link href={`/events/${event?.id}`} className="text-sm font-semibold text-muted-foreground hover:text-foreground">
+        <Link href={`/events/${encodeURIComponent(event?.id ?? '')}`} className="text-sm font-semibold text-muted-foreground hover:text-foreground">
           ← Back to {event?.title}
         </Link>
+
+        {error && (
+          <div role="alert" aria-live="assertive" className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm">
+            {error}
+          </div>
+        )}
 
         <div className="mt-6 flex flex-wrap items-start justify-between gap-4">
           <div>
@@ -156,7 +299,7 @@ export default function ShowPage() {
           </div>
           <div className="flex items-center gap-2">
             <span className="hidden sm:inline text-xs text-muted-foreground">Map polls every 4s · Hold 10m</span>
-            {hold && <HoldTimer expiresAt={hold.expiresAt} onExpire={() => setHold(null)} />}
+            {hold && <HoldTimer expiresAt={hold.expiresAt} onExpire={handleHoldExpired} />}
           </div>
         </div>
 
@@ -165,13 +308,13 @@ export default function ShowPage() {
             <SeatMap seats={seats} selected={selected} onToggle={onToggle} />
             <div className="mt-6 rounded-2xl border bg-card p-4">
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-3 py-1 text-amber-900 dark:text-amber-200">
                   <Crown className="size-3.5 text-amber-600" /> Premium ₹{event?.pricing?.Premium}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-violet-50 border border-violet-200 px-3 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-violet-500/15 border border-violet-500/30 px-3 py-1 text-violet-900 dark:text-violet-200">
                   <Users className="size-3.5 text-violet-600" /> Standard ₹{event?.pricing?.Standard}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 border border-sky-500/30 px-3 py-1 text-sky-900 dark:text-sky-200">
                   <Star className="size-3.5 text-sky-600" /> Economy ₹{event?.pricing?.Economy}
                 </span>
               </div>
@@ -199,7 +342,7 @@ export default function ShowPage() {
               </div>
 
               {selectedSeats.length ? (
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5" aria-live="polite" aria-atomic="true">
                   {selectedSeats.map((s) => (
                     <span key={s.seatId} className="rounded-full bg-muted px-3 py-1 text-xs font-medium">
                       {s.label} · {s.category} · ₹{s.price}
@@ -217,19 +360,20 @@ export default function ShowPage() {
 
               <div className="grid gap-2">
                 <Button
-                  disabled={selected.length === 0 || !!hold}
+                  disabled={selected.length === 0 || !!hold || isHolding}
                   onClick={handleHold}
+                  aria-busy={isHolding}
                   className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
                 >
-                  {hold ? 'Held ✓' : `Hold ${selected.length ? `· ₹${total}` : ''}`}
+                  {isHolding ? 'Holding…' : hold ? 'Held ✓' : `Hold ${selected.length ? `· ₹${total}` : ''}`}
                 </Button>
                 {hold ? (
                   <div className="grid grid-cols-2 gap-2">
-                    <Button variant="outline" onClick={handleRelease}>
-                      Release
+                    <Button variant="outline" onClick={handleRelease} disabled={isReleasing} aria-busy={isReleasing}>
+                      {isReleasing ? 'Releasing…' : 'Release'}
                     </Button>
-                    <Button onClick={handleBook} className="bg-gradient-to-r from-[oklch(0.646_0.222_41.116)] to-[oklch(0.488_0.243_264.376)] text-white hover:opacity-90">
-                      Book now
+                    <Button onClick={handleBook} disabled={isBooking} aria-busy={isBooking} className="bg-gradient-to-r from-[oklch(0.646_0.222_41.116)] to-[oklch(0.488_0.243_264.376)] text-white hover:opacity-90">
+                      {isBooking ? 'Booking…' : 'Book now'}
                     </Button>
                   </div>
                 ) : (
@@ -239,18 +383,18 @@ export default function ShowPage() {
                 )}
               </div>
 
-              {msg && <p className="text-xs rounded-lg bg-muted px-3 py-2">{msg}</p>}
+              {msg && <p role="status" aria-live="polite" className="text-xs rounded-lg bg-muted px-3 py-2">{msg}</p>}
 
               {booking && (
-                <div className="rounded-xl border bg-emerald-50 border-emerald-200 p-3">
-                  <p className="text-sm font-semibold text-emerald-900">Confirmed - {booking.reference}</p>
-                  <p className="text-xs text-emerald-800 mt-1">
+                <div className="rounded-xl border bg-emerald-500/15 border-emerald-500/30 p-3">
+                  <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-200">Confirmed - {booking.reference}</p>
+                  <p className="text-xs text-emerald-800 dark:text-emerald-300 mt-1">
                     Seats {booking.seatLabels?.join(', ')} · ₹{booking.totalAmount}
                   </p>
-                  {booking.qrDataUrl && <img src={booking.qrDataUrl} alt="QR" className="mt-3 mx-auto size-36 bg-white p-2 rounded-xl border" />}
-                  <Link href="/bookings" className="mt-3 inline-flex text-xs font-semibold text-emerald-700 hover:underline">
-                    View all tickets →
-                  </Link>
+                  {booking.qrDataUrl && <img src={booking.qrDataUrl} alt={`QR code for booking ${booking.reference}`} className="mt-3 mx-auto size-36 bg-white p-2 rounded-xl border" loading="lazy" decoding="async" onError={(e)=>{ (e.currentTarget as HTMLImageElement).style.display='none' }} />}
+                  <Button asChild variant="link" size="sm" className="mt-2 px-0 h-auto text-emerald-700 dark:text-emerald-300">
+                    <Link href="/bookings">View all tickets →</Link>
+                  </Button>
                 </div>
               )}
             </Card>
@@ -258,23 +402,24 @@ export default function ShowPage() {
             <Card className="p-5 gap-3">
               <div className="text-sm font-semibold">Sold out? Join waitlist</div>
               <p className="text-xs text-muted-foreground">Pick a category - on cancellation, next gets 10-min email with claim link.</p>
-              <div className="flex gap-2">
+              <div className="flex gap-2" role="group" aria-label="Waitlist category">
                 {(['Premium', 'Standard', 'Economy'] as const).map((c) => (
                   <button
                     key={c}
                     onClick={() => setWaitlistCategory(c)}
+                    aria-pressed={waitlistCategory === c}
                     className={`flex-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${waitlistCategory === c ? 'bg-primary text-primary-foreground border-primary shadow-sm' : 'bg-card hover:bg-accent'}`}
                   >
                     {c}
                   </button>
                 ))}
               </div>
-              <Button variant="secondary" onClick={handleWaitlist} className="w-full rounded-lg">
-                Join {waitlistCategory} waitlist
+              <Button variant="secondary" onClick={handleWaitlist} disabled={isWaitlisting} aria-busy={isWaitlisting} className="w-full rounded-lg">
+                {isWaitlisting ? 'Joining…' : `Join ${waitlistCategory} waitlist`}
               </Button>
-              <Link href="/waitlist" className="text-xs font-semibold text-primary hover:underline">
-                My waitlist →
-              </Link>
+              <Button asChild variant="link" size="sm" className="px-0 h-auto">
+                <Link href="/waitlist">My waitlist →</Link>
+              </Button>
             </Card>
           </div>
         </div>

@@ -2,6 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db'
 import { getTokenFromRequest, getUserFromToken } from '@/lib/auth'
 
+function maskEmail(email: string): string {
+  const at = email.indexOf('@')
+  if (at <= 0) return '***'
+  const local = email.slice(0, at)
+  const domain = email.slice(at + 1)
+  const maskedLocal = local.length <= 1 ? local[0] + '***' : local[0] + '***' + local.slice(-1)
+  return `${maskedLocal}@${domain}`
+}
+
 export async function GET(req: NextRequest) {
   const token = getTokenFromRequest(req)
   const user = getUserFromToken(token || undefined)
@@ -39,6 +48,8 @@ export async function GET(req: NextRequest) {
     }
   })
 
+  // Ensure no PII leak via recentBookings: mask email, do not expose raw email to organiser
+  // Only expose minimal user info (id, masked email, initials). Never raw email/full name if not needed.
   const recentBookings = bookings
     .slice()
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -46,7 +57,17 @@ export async function GET(req: NextRequest) {
     .map((b) => {
       const ev = db.events.find((e) => e.id === b.eventId) || null
       const u = db.users.find((usr) => usr.id === b.userId) || null
-      return { ...b, event: ev, user: u ? { id: u.id, name: u.name, email: u.email } : null }
+      // Strip PII: mask email, only include name initials if needed, never full raw email in organiser view
+      // For admin we still mask; full PII should require separate explicit consent endpoint.
+      // Also strip qrDataUrl from stats view
+      const { qrDataUrl, qrData, ...safeBooking } = b as any
+      return {
+        ...safeBooking,
+        event: ev ? { id: ev.id, title: ev.title, date: ev.date, time: ev.time } : null,
+        // minimal user projection with masked email, no raw PII
+        user: u ? { id: u.id, name: u.name ? u.name.split(' ')[0] + '***' : '***', emailMasked: maskEmail(u.email) } : null,
+        hasQr: !!qrDataUrl,
+      }
     })
 
   return NextResponse.json({
